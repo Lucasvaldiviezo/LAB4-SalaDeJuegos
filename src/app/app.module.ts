@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +9,10 @@ import { NavmenuComponent } from './navmenu/navmenu.component';
 import { NotFoundComponent } from './page/not-found/not-found.component';
 import { AhorcadoComponent } from './page/ahorcado/ahorcado.component';
 import { JuegoComponent } from './page/juego/juego.component';
+import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { JuegoComponent } from './page/juego/juego.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
