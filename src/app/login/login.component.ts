@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  showError: boolean = false;
   usuario={
     email:'',
     password: ''
@@ -25,17 +25,17 @@ export class LoginComponent implements OnInit {
   {
     const{email,password}=this.usuario;
     this.authService.login(email,password).then(res =>
-      {
-        console.log("ingreso!: ",res);
-      });
+    {
+      console.log("ingreso!: ",res);
+    });
     //this.ruteo.navigateByUrl('home');
   }
   ingresarConGoogle(){
     const{email,password}=this.usuario;
     this.authService.loginWithGoogle(email,password).then(res =>
-      {
-        console.log("se ingreso con google!: ",res);
-      });
+    {
+      console.log("se ingreso con google!: ",res);
+    })
     //this.ruteo.navigateByUrl('home');
   }
 
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     this.authService.register(email,password).then(res =>
       {
         console.log("se registro!: ",res);
-      });
+      }); 
   }
 
 }

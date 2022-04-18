@@ -9,6 +9,8 @@ import { AuthService } from '../servicios/auth.service';
 export class NavmenuComponent implements OnInit {
   userLogged = this.authService.getUserLogged();
   
+  isLogged:boolean = true;
+
   constructor(private authService: AuthService) {
   }
   ngOnInit(): void {

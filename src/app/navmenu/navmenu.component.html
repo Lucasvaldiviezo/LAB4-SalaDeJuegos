@@ -10,20 +10,16 @@
           <li><a routerLink="juegos" class="nav-link px-2 text-white">Juegos</a></li>
           <li><a routerLink="sobreMi" href="#" class="nav-link px-2 text-white">Sobre Mi</a></li>
         </ul>
-
-        <div class="text-end">
-          <button routerLink="login" type="button" class="btn btn-outline-light me-2">Login</button>
-          <button type="button" class="btn btn-warning">Sign-up</button>
-        </div>
-        <div>
-          <button class="btn btn-warning" (click)="logout()">Logout</button>
-        </div>
-        <a *ngIf="userLogged|async as user">
+        <a *ngIf="userLogged|async as user;else login_buttons">
           {{user.email}}
           <img style="border-radius: 100%;" *ngIf="user.photoURL" src="{{user.photoURL}}" 
             width="30" height="30" class="d-inline-block align-top" alt="">
+          <button class="btn btn-warning" (click)="logout()">Logout</button>  
         </a>
-        
+        <ng-template #login_buttons class="text-end">
+          <button routerLink="login" type="button" class="btn btn-outline-light me-2">Login</button>
+          <button type="button" class="btn btn-warning">Sign-up</button>
+        </ng-template>    
       </div>
     </div>
   </header>
