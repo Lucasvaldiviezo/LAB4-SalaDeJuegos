@@ -11,7 +11,7 @@ import { AhorcadoComponent } from './page/ahorcado/ahorcado.component';
 import { JuegoComponent } from './page/juego/juego.component';
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
