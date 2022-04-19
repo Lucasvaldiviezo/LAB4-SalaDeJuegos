@@ -1,4 +1,6 @@
+import { environment as common } from './environment';
 export const environment = {
+  common,
   production: true,
   firebaseConfig : {
     apiKey: "AIzaSyBYYJNfesjB-gp0jEYkmifbpLIJxmDEprU",
