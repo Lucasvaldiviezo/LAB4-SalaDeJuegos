@@ -12,8 +12,12 @@
         </ul>
         <a *ngIf="userLogged|async as user;else login_buttons">
           {{user.email}}
-          <img style="border-radius: 100%;" *ngIf="user.photoURL" src="{{user.photoURL}}" 
+          <img style="border-radius: 100%;" *ngIf="user.photoURL;else other_photo" src="{{user.photoURL}}" 
             width="30" height="30" class="d-inline-block align-top" alt="">
+          <ng-template #other_photo>
+            <img style="border-radius: 100%;"  src="./assets/user.png" 
+            width="30" height="30" class="d-inline-block align-top" alt="">
+          </ng-template>
           <button class="btn btn-warning" (click)="logout()">Logout</button>  
         </a>
         <ng-template #login_buttons class="text-end">
