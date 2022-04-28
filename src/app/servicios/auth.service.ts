@@ -12,7 +12,7 @@ export class AuthService {
   {
     try{
       return await this.afauth.createUserWithEmailAndPassword(email,password);
-    }catch (error)
+    }catch(error)
     {
       console.log("error en registro", error);
       return null;

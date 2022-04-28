@@ -9,7 +9,7 @@
 
 .titulo
 {
-    position: fixed;
+    position: absolute;
     top:15%;
     font-size: 80px;
     color:black;
@@ -38,7 +38,7 @@ body
     align-items: center; 
     min-height: 100vh; 
     overflow: hidden; 
-    background-image: url('F:\UTN\4to Cuatrimestre\Laboratorio 4\TP\SalaDeJuegos\src\assets\fondo.jpg');
+    background-image: url('src\assets\fondo.jpg');
 } 
 
 ul 

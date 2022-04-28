@@ -24,10 +24,22 @@ export class LoginComponent implements OnInit {
   ingresar()
   {
     const{email,password}=this.usuario;
-    this.authService.login(email,password).then(res =>
-    {
-      console.log("ingreso!: ",res);
-    });
+    this.authService.login(email,password).then(
+      res =>{
+        if(res==null)
+        {
+          console.log("error al logearse",res);
+          this.showError = true;
+        }else
+        {
+          console.log("ingreso!: ",res);
+        } 
+      });
+      /*.catch(error =>
+      {
+          console.log("error al logearse",error);
+          this.showError = true;
+      });*/
     //this.ruteo.navigateByUrl('home');
   }
   ingresarConGoogle(){
