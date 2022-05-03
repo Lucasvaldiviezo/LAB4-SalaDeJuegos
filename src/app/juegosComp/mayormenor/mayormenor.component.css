@@ -1,0 +1,134 @@
+.container{
+    background-color: rgba(255, 255, 255, 0.575);
+    position: absolute;
+    width: 800px;
+    height: 700px;
+    border-width: 10px;
+    border-style: ridge;
+    border-color:rgb(131, 4, 110);
+    padding: 10px 10px 10px;
+    top:13%;
+    left:28%;
+}
+
+.botonComenzar{
+    position: relative;
+    padding: 10px 10px 10px;
+    width: 30%;
+    top:25%;
+    left:34%;
+    background-color: rgb(190, 59, 59);
+    border-radius: 10%;
+}
+
+.menuStart{
+    width: 700px;
+    height: 600px;
+    position: relative;
+    left:3%;
+    top:5%;
+}
+
+.menuTitulo{
+    text-align: center;
+    position: inherit;
+    top:0%;
+    left:2%;
+    color: #000000; 
+    font-family: 'Raleway',sans-serif; 
+    font-size: 62px; 
+    font-weight: 800; 
+    line-height: 72px; 
+    margin: 0 0 24px; 
+    text-transform: uppercase;
+}
+
+.mayorMenor-img-menu{
+    position: relative;
+    top:10%;
+    left:23%;
+    object-fit:cover;
+    width: 400px;
+}
+
+.botonMayor{
+    position: absolute; 
+    background-color: rgb(12, 114, 37);
+    border-radius: 10%;
+    top:80%;
+    left:20%;
+    padding: 10px 10px 10px;
+    width: 30%;
+}
+
+.botonMenor{
+    position: absolute; 
+    background-color: rgb(156, 23, 23);
+    border-radius: 10%;
+    top:80%;
+    left:50%;
+    padding: 10px 10px 10px;
+    width: 30%;
+}
+
+.cartaAnterior-img{
+    position: absolute;
+    top:25%;
+    left:10%;
+    object-fit:cover;
+    width: 100px;
+    border-width: 5px;
+    border-style:groove;
+    border-color:rgb(0, 0, 0);
+    border-radius: 6%;
+}
+
+.carta-img{
+    position: absolute;
+    top:25%;
+    left:23%;
+    object-fit:cover;
+    width: 150px;
+    border-width: 5px;
+    border-style:groove;
+    border-color:rgb(0, 0, 0);
+    border-radius: 6%;
+}
+
+.back-img{
+    position: absolute;
+    top:25%;
+    left:57%;
+    object-fit:cover;
+    width: 154px;
+    border-width: 5px;
+    border-style:groove;
+    border-color:rgb(0, 0, 0);
+    border-radius: 6%;
+}
+
+.puntaje{
+    text-align: center;
+    position: absolute;
+    top:0%;
+    left:10%;
+    color: #000000; 
+    font-family: 'Raleway',sans-serif; 
+    font-size: 30px; 
+    font-weight: 800; 
+    line-height: 72px; 
+    margin: 0 0 24px; 
+    text-transform: uppercase;
+}
+
+.info{
+    text-align: center;
+    position: absolute;
+    top:15%;
+    left:9%;
+    color: #000000; 
+    font-family: 'Raleway',sans-serif; 
+    font-size: 30px; 
+    font-weight: 300; 
+    line-height: 72px; 
+}

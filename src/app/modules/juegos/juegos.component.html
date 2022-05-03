@@ -1,4 +1,14 @@
 <body>
-    <app-ahorcado></app-ahorcado>
+    <button (click)="mostrarAhorcado()" class="botonAhorcado"></button>
+    <button (click)="mostrarMayorMenor()" class="botonMayorMenor"></button>
+    <div *ngIf="!ahorcado && !mayorMenor" class="sinJuego">
+        <p class="textoSinJuego">Seleccione un juego <br>con los botones de arriba</p><br>
+    </div>
+    <div *ngIf="ahorcado">
+        <app-ahorcado></app-ahorcado>  
+    </div>
+    <div *ngIf="mayorMenor">
+        <app-mayormenor></app-mayormenor>
+    </div>
 </body>
 

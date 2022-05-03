@@ -1,1 +1,19 @@
-<p>mayormenor works!AAAAAAAAA</p>
+<div class="container">
+    <div *ngIf="menu;else juego" class="menuStart">
+        <p class="menuTitulo">Mayor o Menor!</p>
+        <img src="assets/mayorMenor/mayorMenor.png" class="mayorMenor-img-menu"><br>
+        <button class="botonComenzar" (click)="elegirCarta()">Comenzar</button>
+    </div>
+    <ng-template #juego>
+        <div>
+            <p class="puntaje">Puntos:{{puntos}}</p>
+            <p class="info">Anterior / Actual</p>
+            <img src="assets/mayorMenor/cartas/{{cartaAnterior}}_of_{{paloAnterior}}.png" class="cartaAnterior-img">
+            <img src="assets/mayorMenor/cartas/{{cartaActual}}_of_{{palo}}.png" class="carta-img">
+            <img *ngIf="ocultar" src="assets/mayorMenor/cartas/back.png" class="back-img">
+            <img *ngIf="!ocultar" src="assets/mayorMenor/cartas/{{proximaCarta}}_of_{{palo}}.png" class="back-img">
+        </div>
+        <button class="botonMayor" (click)="adivinarProximaCarta('mayor')">MAYOR</button>
+        <button class="botonMenor" (click)="adivinarProximaCarta('menor')">MENOR</button>
+    </ng-template>
+</div>

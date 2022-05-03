@@ -16,6 +16,7 @@ export class AhorcadoComponent implements OnInit {
   menu = true;
   letras = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
   numPalabra:number = 0;
+  puntos:number = -1;
   constructor() {
   }
 
@@ -24,13 +25,14 @@ export class AhorcadoComponent implements OnInit {
 
   elegirPalabra()
   {
-    this.numPalabra = this.getRandomInt(0,5);
+    this.numPalabra = this.getRandomInt(0,this.todasLasPalabras.length-1);
     this.palabraOculta = '_ '.repeat(this.todasLasPalabras[this.numPalabra].length);
     this.palabra = this.todasLasPalabras[this.numPalabra];
     this.menu = false;
     this.gano = false;
     this.perdio = false;
     this.intentos = 0;
+    this.puntos++;
   }
 
   getRandomInt(min:number, max:number) : number{
@@ -57,13 +59,12 @@ export class AhorcadoComponent implements OnInit {
   verificaGane() {
     const palabraArr = this.palabraOculta.split(' ');
     const palabraEvaluar = palabraArr.join('');
-
     if ( palabraEvaluar === this.palabra ) {
       this.gano = true;
     }
-
     if ( this.intentos >= 9 ){
       this.perdio = true;
+      this.puntos = 0;
     }
   }
 

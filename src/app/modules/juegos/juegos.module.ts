@@ -17,4 +17,7 @@ import { MayormenorComponent } from 'src/app/juegosComp/mayormenor/mayormenor.co
     JuegosRoutingModule,  
   ]
 })
-export class JuegosModule { }
+export class JuegosModule { 
+
+  ahorcado = false;
+}

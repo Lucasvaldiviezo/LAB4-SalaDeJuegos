@@ -7,6 +7,7 @@
     <ng-template #juego>
         <div class="row">
             <div class="col text-center">
+                <p class="puntaje">Puntos:{{puntos}}</p>
                 <img src="assets/ahorcado/{{intentos}}.png" alt="ahorcado-img" class="ahorcado-img">
                 <p class="textoIntentos">Intentos {{intentos}}/9</p>
             </div>
@@ -15,8 +16,8 @@
             <h1>{{palabraOculta}}</h1>
         </div>
         <div *ngIf="gano" class="pantallaFinal">
-            <p class="infoFinal">¡FELICIDADES HAS GANADO!</p><br>
-            <button class="botonVolverAJugar" (click)="elegirPalabra()">Volver a Jugar</button>
+            <p class="infoFinal">¡Adivinaste!</p><br>
+            <button class="botonVolverAJugar" (click)="elegirPalabra()">Continuar</button>
         </div>
         
         <div *ngIf="perdio" class="pantallaFinal">
