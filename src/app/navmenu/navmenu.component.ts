@@ -11,7 +11,7 @@ export class NavmenuComponent implements OnInit {
   
   isLogged:boolean = true;
 
-  constructor(private authService: AuthService) {
+  constructor(public authService: AuthService) {
   }
   ngOnInit(): void {
   }

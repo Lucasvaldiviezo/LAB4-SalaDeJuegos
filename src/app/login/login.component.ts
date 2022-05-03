@@ -9,7 +9,7 @@ import { AuthService } from '../servicios/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public ruteo:Router,private authService: AuthService) {
+  constructor(public ruteo:Router,public authService: AuthService) {
     
   }
 
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
         }else
         {
           console.log("ingreso!: ",res);
+          this.ruteo.navigateByUrl('home');
         } 
       });
       /*.catch(error =>
@@ -40,13 +41,14 @@ export class LoginComponent implements OnInit {
           console.log("error al logearse",error);
           this.showError = true;
       });*/
-    //this.ruteo.navigateByUrl('home');
+    //
   }
   ingresarConGoogle(){
     const{email,password}=this.usuario;
     this.authService.loginWithGoogle(email,password).then(res =>
     {
       console.log("se ingreso con google!: ",res);
+      this.ruteo.navigateByUrl('home');
     })
     //this.ruteo.navigateByUrl('home');
   }
@@ -57,6 +59,7 @@ export class LoginComponent implements OnInit {
     this.authService.register(email,password).then(res =>
       {
         console.log("se registro!: ",res);
+        this.ruteo.navigateByUrl('home');
       }); 
   }
 

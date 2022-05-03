@@ -6,7 +6,7 @@ import firebase from 'firebase/compat/app';
 })
 export class AuthService {
 
-  constructor(private afauth: AngularFireAuth ) { }
+  constructor(public afauth: AngularFireAuth ) { }
 
   async register(email:string,password:string)
   {
