@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/servicios/auth.service';
+import { FirestoreService } from 'src/app/servicios/firestore.service';
 
 @Component({
   selector: 'app-chat',
@@ -7,23 +8,41 @@ import { AuthService } from 'src/app/servicios/auth.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
+  today:Date;
   userLogged:any;
   nuevoMensaje:string = '';
   mostrarChat:boolean = false;
-  constructor(public authService: AuthService) { }
-  mensajes: any=[
-  ];
+  constructor(public authService: AuthService, public firestoreService:FirestoreService) {
+    this.today = new Date();
+  }
+
+  mensajes: any=[];
   ngOnInit(): void {
     this.authService.getUserLogged().subscribe(usuario=>{
       this.userLogged = usuario;
     });
+    this.firestoreService.getChat().subscribe(
+      chat=>{
+        this.mensajes = chat;
+      });
   }
 
   enviarMensaje()
   {
+      this.today = new Date();
+      let usuarioTemp:string;
+      if(this.userLogged.displayName != null)
+      {
+        usuarioTemp = this.userLogged.displayName;
+      }else
+      {
+        usuarioTemp = this.userLogged.email;
+      }
       let mensaje={
         emisor: this.userLogged.uid,
+        usuario: usuarioTemp,
         texto: this.nuevoMensaje,
+        hora: this.today.toString(),
       }
       if(this.nuevoMensaje != '')
       {
@@ -32,6 +51,7 @@ export class ChatComponent implements OnInit {
         setTimeout(() => {
           this.scrollToTheLastElementByClassName();
         }, 10);
+        this.firestoreService.addToChat(mensaje);
       }
   }
 

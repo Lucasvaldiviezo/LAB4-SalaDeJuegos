@@ -4,17 +4,21 @@ import { JuegosRoutingModule } from './juegos-routing.module';
 import { JuegosComponent } from './juegos.component';
 import { AhorcadoComponent } from 'src/app/juegosComp/ahorcado/ahorcado.component';
 import { MayormenorComponent } from 'src/app/juegosComp/mayormenor/mayormenor.component';
+import { PokemonComponent } from 'src/app/juegosComp/pokemon/pokemon.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     JuegosComponent,
     AhorcadoComponent,
-    MayormenorComponent
+    MayormenorComponent,
+    PokemonComponent
   ],
   imports: [
     CommonModule,
-    JuegosRoutingModule,  
+    JuegosRoutingModule,
+    FormsModule,
   ]
 })
 export class JuegosModule { 

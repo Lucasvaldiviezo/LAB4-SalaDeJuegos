@@ -22,7 +22,7 @@ body{
 }
 
 .card-header{
-    background-color: rgb(102, 102, 243);
+    background-color: rgb(30, 182, 0);
     color: white;
     font-weight: 700;
 }
@@ -47,7 +47,7 @@ body{
 .enviado{
     display: block;
     float:right;
-    background-color: teal;
+    background-color: rgb(64, 151, 151);
     color:white;
     min-width: 50.01%;
     border-radius: 10px;
@@ -90,4 +90,17 @@ body{
     right:0.5rem;
     top:0.5rem;
     cursor: pointer;
+}
+
+.usuarioMensaje{
+    font-size: 15px;
+    color: black;
+    text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+    font-weight: 500; 
+}
+
+.horaMensaje{
+    color: rgb(187, 187, 187);
+    font-size: 13px;
+    float: right;
 }

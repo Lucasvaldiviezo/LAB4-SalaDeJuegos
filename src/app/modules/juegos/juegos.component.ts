@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class JuegosComponent implements OnInit {
   ahorcado:boolean = false;
   mayorMenor:boolean = false;
+  pokemon:boolean = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -16,11 +17,20 @@ export class JuegosComponent implements OnInit {
   {
     this.ahorcado=true;
     this.mayorMenor=false;
+    this.pokemon=false;
   }
 
   mostrarMayorMenor()
   {
     this.mayorMenor=true;
     this.ahorcado=false;
+    this.pokemon=false;
+  }
+
+  mostrarPokemon()
+  {
+    this.mayorMenor=false;
+    this.ahorcado=false;
+    this.pokemon=true;
   }
 }

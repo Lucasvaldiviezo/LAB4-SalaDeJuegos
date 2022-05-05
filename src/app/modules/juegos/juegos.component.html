@@ -1,7 +1,8 @@
 <body>
     <button (click)="mostrarAhorcado()" class="botonAhorcado"></button>
     <button (click)="mostrarMayorMenor()" class="botonMayorMenor"></button>
-    <div *ngIf="!ahorcado && !mayorMenor" class="sinJuego">
+    <button (click)="mostrarPokemon()" class="botonPokemon"></button>
+    <div *ngIf="!ahorcado && !mayorMenor && !pokemon" class="sinJuego">
         <p class="textoSinJuego">Seleccione un juego <br>con los botones de arriba</p><br>
     </div>
     <div *ngIf="ahorcado">
@@ -9,6 +10,9 @@
     </div>
     <div *ngIf="mayorMenor">
         <app-mayormenor></app-mayormenor>
+    </div>
+    <div *ngIf="pokemon">
+        <app-pokemon></app-pokemon>
     </div>
 </body>
 

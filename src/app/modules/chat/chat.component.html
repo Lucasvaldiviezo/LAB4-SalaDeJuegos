@@ -12,9 +12,10 @@
         </div>
         <div id="contenedorDeMensajes" class="card-body">
             <div>
-                <p *ngFor="let mensaje of mensajes" class="msj p-2" [ngClass]="(userLogged.uid==mensaje.emisor)?'enviado' : 'recibido'">
-                    {{userLogged.displayName?userLogged.displayName : userLogged.email}}:<br>
-                    {{mensaje.texto}}
+                <p *ngFor="let mensaje of mensajes"  class="msj p-2" [ngClass]="(userLogged.uid==mensaje.emisor)?'enviado' : 'recibido'">
+                    <span class="usuarioMensaje">{{mensaje.usuario}}:</span><br>
+                    <span>{{mensaje.texto}}</span><br>
+                    <span class="horaMensaje">{{mensaje.hora | date:'shortTime'}}</span>
                 </p>
             </div>
         </div>

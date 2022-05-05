@@ -1,0 +1,13 @@
+<div class="container">
+    <div *ngIf="menu;else juego" class="menuStart">
+        <p class="menuTitulo">Pokemon!</p>
+        <img src="assets/pokemon/boton.png" class="pokemon-img-menu"><br>
+        <button class="botonComenzar" (click)="elegirPokemon()">Comenzar</button>
+    </div>
+    <ng-template #juego>
+        <img src="assets/pokemon/firered-leafgreen/{{numero}}.png" class="pokemon">
+        <input type="text" id="pokemonResp" [(ngModel)]="pokemonResp">
+        <button class="botonPokemon" (click)="verificarPokemon()">Listo!</button>
+    </ng-template>
+</div>
+

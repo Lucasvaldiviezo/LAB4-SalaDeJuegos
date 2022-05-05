@@ -10,6 +10,10 @@ import { NotFoundComponent } from './page/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+//import { provideFirestore,getFirestore, FirestoreModule } from '@angular/fire/firestore';
+
 
 
 @NgModule({
@@ -25,7 +29,12 @@ import { environment } from 'src/environments/environment';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    HttpClientModule,
+    //FirestoreModule,
+    /*provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())*/
   ],
   providers: [],
   bootstrap: [AppComponent]
