@@ -14,6 +14,7 @@ export class ChatComponent implements OnInit {
   mostrarChat:boolean = false;
   constructor(public authService: AuthService, public firestoreService:FirestoreService) {
     this.today = new Date();
+    
   }
 
   mensajes: any=[];
@@ -21,10 +22,10 @@ export class ChatComponent implements OnInit {
     this.authService.getUserLogged().subscribe(usuario=>{
       this.userLogged = usuario;
     });
-    this.firestoreService.getChat().subscribe(
+    this.firestoreService.getCollection('Chat').subscribe(
       chat=>{
         this.mensajes = chat;
-      });
+    });
   }
 
   enviarMensaje()

@@ -6,10 +6,10 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class FirestoreService {
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(public firestore: AngularFirestore) { }
 
-  getChat(){
-    return this.firestore.collection('Chat').valueChanges();
+  getCollection(coleccion:any){
+    return this.firestore.collection(coleccion).valueChanges();
   }
 
   addToChat(chat:any)

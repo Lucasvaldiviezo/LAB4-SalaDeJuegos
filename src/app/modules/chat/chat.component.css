@@ -73,16 +73,22 @@ body{
     display:flex;
     justify-content: center;
     align-items: center;
-    width: 60px;
-    height: 60px;
+    width: 170px;
+    height: 170px;
     cursor:pointer;
     background-color: rgb(167, 167, 167);
     border-radius: 100%;
     box-shadow: 0 0 10px 2px rgb(71, 71, 71);
 }
+
+.chatIconContainer:hover{
+    border-width: 10px;
+    border-style:groove;
+    border-color:rgb(131, 4, 110);
+}
 .chatIcon{
-    width: 40px;
-    height: 40px;
+    width: 130px;
+    height: 130px;
 }
 
 .closeIcon{
