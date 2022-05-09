@@ -14,7 +14,6 @@ export class ChatComponent implements OnInit {
   mostrarChat:boolean = false;
   constructor(public authService: AuthService, public firestoreService:FirestoreService) {
     this.today = new Date();
-    
   }
 
   mensajes: any=[];

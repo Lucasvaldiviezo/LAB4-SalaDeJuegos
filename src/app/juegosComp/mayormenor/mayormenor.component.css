@@ -132,3 +132,24 @@
     font-weight: 300; 
     line-height: 72px; 
 }
+
+.infoFinal{
+    font-size: 25px;
+    position: relative;
+}
+
+.pantallaFinal{
+    text-align: center;
+    position: relative;
+    top:30%;
+    padding: 20px 20px 20px;
+}
+
+.btnVolverAJugar{
+    position: relative;
+    padding: 10px 10px 10px;
+    width: 30%;
+    top:25%;
+    background-color: rgb(190, 59, 59);
+    border-radius: 10%;
+}

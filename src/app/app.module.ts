@@ -7,7 +7,7 @@ import { QuienSoyComponent } from './quien-soy/quien-soy.component';
 import { HomeComponent } from './home/home.component';
 import { NavmenuComponent } from './navmenu/navmenu.component';
 import { NotFoundComponent } from './page/not-found/not-found.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
@@ -32,6 +32,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     HttpClientModule,
+    ReactiveFormsModule,
     //FirestoreModule,
     /*provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore())*/

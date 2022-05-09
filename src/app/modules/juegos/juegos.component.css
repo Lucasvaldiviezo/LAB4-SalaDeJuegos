@@ -54,7 +54,7 @@ body{
 .botonMayorMenor{
     text-shadow: 0.1px 0 0 rgb(194, 0, 0), -0.1px 0 0 rgb(194, 0, 0), 0 0.1px 0 rgb(194, 0, 0), 0 -0.1px 0 rgb(194, 0, 0), 0.1px 0.1px rgb(194, 0, 0), -0.1px -0.1px 0 rgb(194, 0, 0), 0.1px -0.1px 0 rgb(194, 0, 0), -0.1px 0.1px 0 rgb(194, 0, 0);
     position: absolute;
-    left:53.5%;
+    left:46.5%;
     top:3%;
     background-image: url('src/assets/mayorMenor/boton.png');
     background-size:cover;
@@ -74,7 +74,7 @@ body{
 .botonPokemon{
     text-shadow: 0.1px 0 0 rgb(194, 0, 0), -0.1px 0 0 rgb(194, 0, 0), 0 0.1px 0 rgb(194, 0, 0), 0 -0.1px 0 rgb(194, 0, 0), 0.1px 0.1px rgb(194, 0, 0), -0.1px -0.1px 0 rgb(194, 0, 0), 0.1px -0.1px 0 rgb(194, 0, 0), -0.1px 0.1px 0 rgb(194, 0, 0);
     position: absolute;
-    left:77%;
+    left:63%;
     top:3%;
     background-image: url('src/assets/pokemon/boton.png');
     background-size:cover;
@@ -84,6 +84,8 @@ body{
     justify-content: center; 
     align-items: center;  
 }
+
+
 
 .botonPokemon:hover{
     border-width: 3px;

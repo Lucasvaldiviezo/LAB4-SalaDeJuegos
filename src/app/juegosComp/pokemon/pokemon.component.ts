@@ -11,9 +11,11 @@ export class PokemonComponent implements OnInit {
   pokemon:any;
   pokemonResp:string = '';
   menu:boolean = true;
-  gano:boolean = false;
   perdio:boolean = false;
+  mostrar:boolean = false;
+  adivino:boolean = false;
   numero:number = 0;
+  puntos:number = 0;
   constructor(public pokemonService:PokemonService) {
     
   }
@@ -21,11 +23,17 @@ export class PokemonComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  comenzar(){
+    this.pokemonResp="";
+    this.menu = false;
+    this.perdio = false;
+    this.mostrar = false;
+    this.puntos = 0;
+    this.elegirPokemon();
+  }
+
   elegirPokemon()
   {
-    this.menu = false;
-    this.gano = false;
-    this.perdio = false;
     this.numero = this.getRandomInt(0,150);
     this.pokemonService.getOnePokemon(this.numero).subscribe((resp:any)=>{
       this.pokemon = resp;
@@ -33,12 +41,22 @@ export class PokemonComponent implements OnInit {
   }
 
   verificarPokemon(){
-    if(this.pokemonResp.toLocaleLowerCase() == this.pokemon.name)
+    if(this.pokemonResp != '')
     {
-      console.log("GANO!");
-    }else
-    {
-      console.log("PERDIO :(");
+      if(this.pokemonResp.toLocaleLowerCase() == this.pokemon.name)
+      {
+        this.mostrar = true;
+        this.puntos++;
+        this.pokemonResp = "";
+        setTimeout(()=>{
+          this.mostrar=false;
+          this.elegirPokemon();
+        }, 800); 
+      }else
+      {
+        this.perdio = true;
+        this.mostrar = true;
+      }
     }
   }
 

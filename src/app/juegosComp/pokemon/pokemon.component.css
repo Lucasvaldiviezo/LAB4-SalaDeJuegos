@@ -1,5 +1,5 @@
 .container{
-    background-color: rgba(255, 255, 255, 0.575);
+    background-color: rgba(168, 0, 0, 0.575);
     position: absolute;
     width: 800px;
     height: 700px;
@@ -39,11 +39,20 @@
     width: 30%;
     top:20%;
     left:34%;
-    background-color: rgb(190, 59, 59);
-    border-radius: 10%;
+    background-color: #032f72;
+    color: #fff;
+    font-size: 100%;
+    font-family: "Flexo-Demi",arial,sans-serif;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    line-height: 125%;
+    padding: 0.75em 1.25em 0.675em;
+    vertical-align: middle;
+    text-align: center;
 }
 
-.pokemon-img-menu{
+.pokeball-img-menu{
     position: relative;
     top:7%;
     left:30%;
@@ -51,14 +60,125 @@
     width: 250px;
 }
 
-.pokemon-img{
-    position: absolute;
-    top:25%;
-    left:23%;
-    object-fit:cover;
-    width: 150px;
+.pokemon-img-black{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    top:24%;
+    position: relative;
+    filter: brightness(0%);
+}
+
+.pokemon-img-normal{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    top:24%;
+    position: relative;
+}
+
+.contenedor-pokedex{
+    position:relative;
     border-width: 5px;
-    border-style:groove;
-    border-color:rgb(0, 0, 0);
-    border-radius: 6%;
+    border-style:solid;
+    border-color:rgb(150, 150, 150);
+    background-color: white;
+    width: 250px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    top:20%;
+}
+
+.pokemonResp{
+    position:relative;
+    left:10%;
+    top:-2%;
+    font-size: 100%;
+    font-family: "Flexo-Demi",arial,sans-serif;
+    border-radius: 5px;
+    border-width: 3px;
+    border-style:outset;
+    border-color: #000000;
+    line-height: 125%;
+    padding: 0.75em 1.25em 0.675em;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.botonPokemon{
+    position:relative;
+    right:27%;
+    top:35%;
+    background-color: #d68924;
+    color: #fff;
+    font-size: 100%;
+    font-family: "Flexo-Demi",arial,sans-serif;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    line-height: 125%;
+    padding: 0.75em 1.25em 0.675em;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.puntaje{
+    text-align: center;
+    position: absolute;
+    top:0%;
+    left:10%;
+    color: #000000; 
+    font-family: 'Raleway',sans-serif; 
+    font-size: 20px; 
+    font-weight: 800; 
+    line-height: 72px; 
+    margin: 0 0 24px; 
+    text-transform: uppercase;
+}
+
+.jugando{
+    background-color: rgb(42, 0, 196) ;
+    position: relative;
+    width: 60%;
+    height: 25%;
+    left:20%;
+    top:26%;
+    border-width: 10px;
+    border-style:outset;
+    border-color:rgb(27, 0, 122) ;
+    text-align: center;
+    color: white;
+}
+
+.infoFinal{
+    font-size: 25px;
+    position: relative;
+}
+
+.pantallaFinal{
+    text-align: center;
+    position: relative;
+    top:10%;
+    padding: 20px 20px 20px;
+    color:white;
+    font-family: "Flexo-Demi",arial,sans-serif;
+}
+
+.botonVolverAJugar{
+    position: relative;
+    background-color: #d68924;
+    color: #fff;
+    font-size: 100%;
+    font-family: "Flexo-Demi",arial,sans-serif;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    line-height: 125%;
+    padding: 0.75em 1.25em 0.675em;
+    vertical-align: middle;
+    text-align: center;
+    bottom: 25%;
 }

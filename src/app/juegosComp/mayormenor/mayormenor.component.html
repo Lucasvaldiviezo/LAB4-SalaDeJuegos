@@ -5,15 +5,20 @@
         <button class="botonComenzar" (click)="elegirCarta()">Comenzar</button>
     </div>
     <ng-template #juego>
-        <div>
+        <div *ngIf="!perdio">
             <p class="puntaje">Puntos:{{puntos}}</p>
             <p class="info">Anterior / Actual</p>
             <img src="assets/mayorMenor/cartas/{{cartaAnterior}}_of_{{paloAnterior}}.png" class="cartaAnterior-img">
             <img src="assets/mayorMenor/cartas/{{cartaActual}}_of_{{palo}}.png" class="carta-img">
             <img *ngIf="ocultar" src="assets/mayorMenor/cartas/back.png" class="back-img">
             <img *ngIf="!ocultar" src="assets/mayorMenor/cartas/{{proximaCarta}}_of_{{palo}}.png" class="back-img">
+            <button class="botonMayor" (click)="adivinarProximaCarta('mayor')">MAYOR</button>
+            <button class="botonMenor" (click)="adivinarProximaCarta('menor')">MENOR</button>
         </div>
-        <button class="botonMayor" (click)="adivinarProximaCarta('mayor')">MAYOR</button>
-        <button class="botonMenor" (click)="adivinarProximaCarta('menor')">MENOR</button>
+        <div *ngIf="perdio" class="pantallaFinal">
+            <p class="infoFinal"> PERDISTE! </p>
+            <p class="infoFinal">Tu puntaje fue: {{puntos}}</p>
+            <button class="btnVolverAJugar" (click)="elegirCarta()">Volver a Jugar</button>
+        </div>
     </ng-template>
 </div>

@@ -14,12 +14,15 @@ export class MayormenorComponent implements OnInit {
   cartaAnterior:number = 1;
   paloAnterior:string = 'spades';
   ocultar:boolean = true;
-  puntos:number = 0;
+  puntos:number = 0
+  perdio:boolean = false;
   constructor() { }
   ngOnInit(): void {
   }
   elegirCarta()
   {
+    this.puntos = 0;
+    this.perdio = false;
     this.menu = false;
     this.cartaActual=this.getRandomInt(1,13);
     this.tipoCarta = this.getRandomInt(1,4);
@@ -56,7 +59,7 @@ export class MayormenorComponent implements OnInit {
         this.puntos++;
       }else
       {
-        console.log(this.cartaActual +" no es mayor que " + this.proximaCarta);
+        this.perdio = true;
       }
     }else
     {
@@ -64,7 +67,7 @@ export class MayormenorComponent implements OnInit {
         this.puntos++;
       }else
       {
-        console.log(this.cartaActual +" no es menor que " + this.proximaCarta);
+        this.perdio = true;
       }
     }
 
