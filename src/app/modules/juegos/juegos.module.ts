@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule} from '@angular/common';
 import { JuegosRoutingModule } from './juegos-routing.module';
 import { JuegosComponent } from './juegos.component';
 import { AhorcadoComponent } from 'src/app/juegosComp/ahorcado/ahorcado.component';
 import { MayormenorComponent } from 'src/app/juegosComp/mayormenor/mayormenor.component';
 import { PokemonComponent } from 'src/app/juegosComp/pokemon/pokemon.component';
+import { PuntajeComponent } from 'src/app/juegosComp/puntaje/puntaje.component';
 import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -13,7 +15,8 @@ import { FormsModule } from '@angular/forms';
     JuegosComponent,
     AhorcadoComponent,
     MayormenorComponent,
-    PokemonComponent
+    PokemonComponent,
+    PuntajeComponent
   ],
   imports: [
     CommonModule,

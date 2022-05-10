@@ -12,7 +12,8 @@
         <app-mayormenor></app-mayormenor>
     </div>
     <div *ngIf="pokemon">
-        <app-pokemon></app-pokemon>
+        <app-pokemon (enviarPuntaje)="tomarPuntajeParaTabla($event)"></app-pokemon>
     </div>
+    <app-puntaje [puntajeRecibido]="puntajeRecibido"></app-puntaje>
 </body>
 

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/servicios/auth.service';
+import { Component, OnInit, Input ,Output,EventEmitter } from '@angular/core';
 import { PokemonService } from 'src/app/servicios/pokemonService/pokemon.service';
 
 @Component({
@@ -8,6 +7,7 @@ import { PokemonService } from 'src/app/servicios/pokemonService/pokemon.service
   styleUrls: ['./pokemon.component.css']
 })
 export class PokemonComponent implements OnInit {
+  @Output() enviarPuntaje:EventEmitter<any>= new EventEmitter<any>();  
   pokemon:any;
   pokemonResp:string = '';
   menu:boolean = true;
@@ -56,6 +56,7 @@ export class PokemonComponent implements OnInit {
       {
         this.perdio = true;
         this.mostrar = true;
+        this.enviarTablaPuntajes(this.puntos);
       }
     }
   }
@@ -64,5 +65,9 @@ export class PokemonComponent implements OnInit {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; 
+  }
+
+  enviarTablaPuntajes(puntaje:any){
+    this.enviarPuntaje.emit(puntaje);
   }
 }

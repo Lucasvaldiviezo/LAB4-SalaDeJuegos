@@ -1,0 +1,19 @@
+<div class="container">
+    <table>
+        <thead>
+          <tr>
+            <th>Posicion
+            <th>Puntaje
+            <th>Usuario
+            <th><img src='assets/actualizarBoton.png' class="botonActualizar" (click)="actualizarLista()"></th>
+        </thead>
+        <tbody>
+            <tr mdbTableCol *ngFor="let punt of tablaPuntajes">
+                <td scope="row">{{ punt.posicion }}</td>
+                <td>{{ punt.puntaje }}</td>
+                <td>{{ punt.usuario }}</td>
+            </tr>
+        </tbody>
+      </table>
+      
+</div>

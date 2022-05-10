@@ -17,4 +17,15 @@ export class FirestoreService {
     this.firestore.collection('Chat').add(chat);
   }
 
+  addScore(coleccion:any,puntaje:any)
+  {
+    let idDocument:string =puntaje.posicion.toString();
+    console.log(idDocument);
+    this.firestore.collection(coleccion).doc(idDocument).set({
+      posicion: puntaje.posicion,
+      puntaje: puntaje.puntaje,
+      usuario: puntaje.usuario,
+    });
+  }
+
 }
