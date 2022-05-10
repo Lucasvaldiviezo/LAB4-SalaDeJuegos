@@ -25,9 +25,9 @@ export class PuntajeComponent implements OnInit {
   }
 
   actualizarLista(){
-    let agregado = 0;
     if(this.puntajeRecibido > 0)
     {
+      let agregado = 0;
       let nuevoPuntaje;
       if(this.tablaPuntajes.length > 0)
       {
@@ -40,22 +40,22 @@ export class PuntajeComponent implements OnInit {
             }
             this.tablaPuntajes.splice(i,0,nuevoPuntaje);
             agregado = 1;
-            break;
-          }
-          if(this.tablaPuntajes.length < this.topMax && agregado == 0)
-          {
-            nuevoPuntaje = {posicion: i+2,puntaje: this.puntajeRecibido, usuario: this.userLogged.email};
-            this.tablaPuntajes.push(nuevoPuntaje);
+            this.firestoreService.addScore(this.coleccionActual,nuevoPuntaje);
             break;
           }
         }
-        
+        if(this.tablaPuntajes.length < this.topMax && agregado == 0)
+          {
+            nuevoPuntaje = {posicion: this.tablaPuntajes.length+1,puntaje: this.puntajeRecibido, usuario: this.userLogged.email};
+            this.tablaPuntajes.push(nuevoPuntaje);
+            this.firestoreService.addScore(this.coleccionActual,nuevoPuntaje);
+          }
       }else
       {
         nuevoPuntaje = {posicion:1,puntaje: this.puntajeRecibido, usuario: this.userLogged.email};
         this.tablaPuntajes.push(nuevoPuntaje);
+        this.firestoreService.addScore(this.coleccionActual,nuevoPuntaje);
       }
-      this.firestoreService.addScore(this.coleccionActual,nuevoPuntaje);
     }
   }
 

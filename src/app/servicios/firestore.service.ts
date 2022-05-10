@@ -16,7 +16,10 @@ export class FirestoreService {
   {
     this.firestore.collection('Chat').add(chat);
   }
-
+  actualizarColeccionCompleta(coleccion:any,datos:any)
+  {
+    //ESTO NECESITO PARA QUE FUNCIONE EL PUNTAJE
+  }
   addScore(coleccion:any,puntaje:any)
   {
     let idDocument:string =puntaje.posicion.toString();
