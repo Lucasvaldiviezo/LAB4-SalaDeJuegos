@@ -35,7 +35,7 @@
     padding: 10px 10px 10px;
     width: 30%;
     top:20%;
-    left:35%;
+    left:33%;
     background-color: #032f72;
     color: #fff;
     font-size: 100%;
@@ -49,7 +49,14 @@
     text-align: center;
 }
 
-.pokeball-img-menu{
+.gifCargando{
+    position: relative;
+    width: 40%;
+    top:8%;
+    left:28.5%;
+}
+
+.country-img-menu{
     position: relative;
     top:7%;
     left:32%;
@@ -57,26 +64,20 @@
     width: 250px;
 }
 
-.pokemon-img-black{
+.country-img{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
-    top:5%;
+    width: 70%;
+    top:30%;
+    right:1%;
     position: relative;
-    filter: brightness(0%);
+    border-width: 10px;
+    border-style: ridge;
+    border-color:rgb(0, 0, 0);
 }
 
-.pokemon-img-normal{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    top:5%;
-    position: relative;
-}
-
-.contenedor-pokedex{
+.contenedor-bandera{
     position:relative;
     border-width: 5px;
     border-style:solid;
@@ -89,27 +90,67 @@
     top:20%;
 }
 
-.pokemonResp{
+.botonRespuesta1{
     position:relative;
-    left:10%;
-    top:-2%;
+    left:14%;
+    width: 30%;
+    height: 30%;
+    background-color: #b10606;
+    color: #fff;
     font-size: 100%;
     font-family: "Flexo-Demi",arial,sans-serif;
     border-radius: 5px;
-    border-width: 3px;
-    border-style:outset;
-    border-color: #000000;
+    border: none;
+    cursor: pointer;
+    line-height: 125%;
+    padding: 0.75em 1.25em 0.675em;
+    vertical-align: middle;
+    text-align: center;
+}
+.botonRespuesta2{
+    position:relative;
+    left:22%;
+    top:40%;
+    width: 30%;
+    height: 30%;
+    background-color: #00ac0e;
+    color: #fff;
+    font-size: 100%;
+    font-family: "Flexo-Demi",arial,sans-serif;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
     line-height: 125%;
     padding: 0.75em 1.25em 0.675em;
     vertical-align: middle;
     text-align: center;
 }
 
-.botonPokemon{
+.botonRespuesta3{
     position:relative;
-    right:27%;
-    top:35%;
-    background-color: #d68924;
+    right:8.1%;
+    width: 30%;
+    height: 30%;
+    background-color: #000ed4;
+    color: #fff;
+    font-size: 100%;
+    font-family: "Flexo-Demi",arial,sans-serif;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    line-height: 125%;
+    padding: 0.75em 1.25em 0.675em;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.botonRespuesta4{
+    position:relative;
+    right:16.2%;
+    top:10%;
+    width: 30%;
+    height: 30%;
+    background-color: #bb00d4;
     color: #fff;
     font-size: 100%;
     font-family: "Flexo-Demi",arial,sans-serif;
@@ -136,16 +177,16 @@
     text-transform: uppercase;
 }
 
-.jugando{
-    background-color: rgb(42, 0, 196) ;
+.respuestasContenedor{
+    background-color: rgb(50, 51, 43) ;
     position: relative;
-    width: 60%;
-    height: 25%;
-    left:20%;
+    width: 70%;
+    height: 30%;
+    left:15%;
     top:26%;
     border-width: 10px;
     border-style:outset;
-    border-color:rgb(27, 0, 122) ;
+    border-color:rgb(104, 100, 119) ;
     text-align: center;
     color: white;
 }

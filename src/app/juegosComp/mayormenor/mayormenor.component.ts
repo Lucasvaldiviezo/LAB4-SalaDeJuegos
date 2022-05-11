@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Output,EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-mayormenor',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mayormenor.component.css']
 })
 export class MayormenorComponent implements OnInit {
+  @Output() enviarPuntaje:EventEmitter<any>= new EventEmitter<any>();  
   menu:boolean = true;
   tipoCarta:number = 0;
   palo:string = '';
@@ -96,5 +97,9 @@ export class MayormenorComponent implements OnInit {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; 
+  }
+
+  enviarTablaPuntajes(puntaje:any){
+    this.enviarPuntaje.emit(puntaje);
   }
 }

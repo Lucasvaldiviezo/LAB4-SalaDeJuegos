@@ -1,5 +1,5 @@
 import { Component, OnInit, Input,Output,EventEmitter } from '@angular/core';
-import { AuthService } from 'src/app/servicios/auth.service'; 
+
 
 @Component({
   selector: 'app-juegos',
@@ -7,15 +7,16 @@ import { AuthService } from 'src/app/servicios/auth.service';
   styleUrls: ['./juegos.component.css']
 })
 export class JuegosComponent implements OnInit {
-  @Output() juegoActual:EventEmitter<any>= new EventEmitter<any>();
+  //@Output() juegoActual:EventEmitter<any>= new EventEmitter<any>();
   juego:string = "";  
   ahorcado:boolean = false;
   mayorMenor:boolean = false;
   pokemon:boolean = false;
+  preguntados:boolean = false;
   puntajeRecibido:any;
-  userLogged = this.authService.getUserLogged();
+  
 
-  constructor(public authService: AuthService) { 
+  constructor() { 
     this.puntajeRecibido = 0;
   }
 
@@ -26,8 +27,8 @@ export class JuegosComponent implements OnInit {
     this.ahorcado=true;
     this.mayorMenor=false;
     this.pokemon=false;
+    this.preguntados=false;
     this.juego = "ahorcado";
-    this.juegoActual.emit(this.juego);
   }
 
   mostrarMayorMenor()
@@ -35,8 +36,8 @@ export class JuegosComponent implements OnInit {
     this.mayorMenor=true;
     this.ahorcado=false;
     this.pokemon=false;
+    this.preguntados=false;
     this.juego = "mayorMenor";
-    this.juegoActual.emit(this.juego);
   }
 
   mostrarPokemon()
@@ -44,8 +45,17 @@ export class JuegosComponent implements OnInit {
     this.mayorMenor=false;
     this.ahorcado=false;
     this.pokemon=true;
+    this.preguntados=false;
     this.juego = "pokemon";
-    this.juegoActual.emit(this.juego);
+  }
+
+  mostrarPreguntados()
+  {
+    this.mayorMenor=false;
+    this.ahorcado=false;
+    this.pokemon=false;
+    this.preguntados=true;
+    this.juego = "preguntados";
   }
 
   tomarPuntajeParaTabla(nuevoPuntaje: any)

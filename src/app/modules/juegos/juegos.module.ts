@@ -7,6 +7,7 @@ import { MayormenorComponent } from 'src/app/juegosComp/mayormenor/mayormenor.co
 import { PokemonComponent } from 'src/app/juegosComp/pokemon/pokemon.component';
 import { PuntajeComponent } from 'src/app/juegosComp/puntaje/puntaje.component';
 import { FormsModule } from '@angular/forms';
+import { PreguntadosComponent } from 'src/app/juegosComp/preguntados/preguntados.component';
 
 
 
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     AhorcadoComponent,
     MayormenorComponent,
     PokemonComponent,
-    PuntajeComponent
+    PreguntadosComponent,
+    PuntajeComponent,
   ],
   imports: [
     CommonModule,

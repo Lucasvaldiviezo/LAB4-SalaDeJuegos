@@ -2,18 +2,22 @@
     <button (click)="mostrarAhorcado()" class="botonAhorcado"></button>
     <button (click)="mostrarMayorMenor()" class="botonMayorMenor"></button>
     <button (click)="mostrarPokemon()" class="botonPokemon"></button>
-    <div *ngIf="!ahorcado && !mayorMenor && !pokemon" class="sinJuego">
+    <button (click)="mostrarPreguntados()" class="botonPreguntados"></button>
+    <div *ngIf="!ahorcado && !mayorMenor && !pokemon && !preguntados" class="sinJuego">
         <p class="textoSinJuego">Seleccione un juego <br>con los botones de arriba</p><br>
     </div>
     <div *ngIf="ahorcado">
-        <app-ahorcado></app-ahorcado>  
+        <app-ahorcado (enviarPuntaje)="tomarPuntajeParaTabla($event)"></app-ahorcado>  
     </div>
     <div *ngIf="mayorMenor">
-        <app-mayormenor></app-mayormenor>
+        <app-mayormenor (enviarPuntaje)="tomarPuntajeParaTabla($event)" ></app-mayormenor>
     </div>
     <div *ngIf="pokemon">
         <app-pokemon (enviarPuntaje)="tomarPuntajeParaTabla($event)"></app-pokemon>
     </div>
-    <app-puntaje [puntajeRecibido]="puntajeRecibido"></app-puntaje>
+    <div *ngIf="preguntados">
+        <app-preguntados (enviarPuntaje)="tomarPuntajeParaTabla($event)"></app-preguntados>
+    </div>
+    <app-puntaje [puntajeRecibido]="puntajeRecibido" [juegoActual]="juego"></app-puntaje>
 </body>
 

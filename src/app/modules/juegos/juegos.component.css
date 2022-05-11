@@ -54,7 +54,7 @@ body{
 .botonMayorMenor{
     text-shadow: 0.1px 0 0 rgb(194, 0, 0), -0.1px 0 0 rgb(194, 0, 0), 0 0.1px 0 rgb(194, 0, 0), 0 -0.1px 0 rgb(194, 0, 0), 0.1px 0.1px rgb(194, 0, 0), -0.1px -0.1px 0 rgb(194, 0, 0), 0.1px -0.1px 0 rgb(194, 0, 0), -0.1px 0.1px 0 rgb(194, 0, 0);
     position: absolute;
-    left:46.5%;
+    left:40.5%;
     top:3%;
     background-image: url('src/assets/mayorMenor/boton.png');
     background-size:cover;
@@ -77,12 +77,38 @@ body{
     left:63%;
     top:3%;
     background-image: url('src/assets/pokemon/boton.png');
-    background-size:cover;
+    background-size:100% 100%;
     width: 110px;
     height: 85px;
     font-weight: 800;
     justify-content: center; 
     align-items: center;  
+}
+
+.botonPokemon:hover{
+    border-width: 3px;
+    border-style: ridge;
+    border-color:rgb(255, 0, 0);
+}
+
+.botonPreguntados{
+    text-shadow: 0.1px 0 0 rgb(194, 0, 0), -0.1px 0 0 rgb(194, 0, 0), 0 0.1px 0 rgb(194, 0, 0), 0 -0.1px 0 rgb(194, 0, 0), 0.1px 0.1px rgb(194, 0, 0), -0.1px -0.1px 0 rgb(194, 0, 0), 0.1px -0.1px 0 rgb(194, 0, 0), -0.1px 0.1px 0 rgb(194, 0, 0);
+    position: absolute;
+    left:51.5%;
+    top:3%;
+    background-image: url('src/assets/preguntados/paisesIcono.png');
+    background-size:100% 100%;
+    width: 110px;
+    height: 85px;
+    font-weight: 800;
+    justify-content: center; 
+    align-items: center;  
+}
+
+.botonPreguntados:hover{
+    border-width: 3px;
+    border-style: ridge;
+    border-color:rgb(255, 0, 0);
 }
 
 

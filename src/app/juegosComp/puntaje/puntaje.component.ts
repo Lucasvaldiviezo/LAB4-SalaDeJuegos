@@ -8,7 +8,7 @@ import { FirestoreService } from 'src/app/servicios/firestore.service';
 })
 export class PuntajeComponent implements OnInit {
   userLogged:any;
-  @Input() juegoActual:string ="pokemon";
+  @Input() juegoActual:string = 'pokemon';
   @Input() puntajeRecibido:any;
   tablaPuntajes:any;
   coleccionActual:any;
@@ -35,12 +35,12 @@ export class PuntajeComponent implements OnInit {
           if(this.compararPuntaje(this.puntajeRecibido,this.tablaPuntajes[i].puntaje,) == 1)
           {
             nuevoPuntaje = {posicion: i+1,puntaje: this.puntajeRecibido, usuario: this.userLogged.email};
-            for(let j = 0 ; j< this.tablaPuntajes.length;j++){
+            for(let j = 1 ; j< this.tablaPuntajes.length;j++){
               this.tablaPuntajes[j].posicion++;
             }
             this.tablaPuntajes.splice(i,0,nuevoPuntaje);
             agregado = 1;
-            this.firestoreService.addScore(this.coleccionActual,nuevoPuntaje);
+            this.firestoreService.actualizarColeccionCompleta(this.coleccionActual,this.tablaPuntajes);
             break;
           }
         }
@@ -95,6 +95,19 @@ export class PuntajeComponent implements OnInit {
             this.tablaPuntajes = puntajes;
         });
       break;
+      case "mayorMenor":
+        this.coleccionActual = "PuntajeMayorMenor"
+        this.firestoreService.getCollection(this.coleccionActual).subscribe(
+          puntajes=>{
+            this.tablaPuntajes = puntajes;
+        });
+        break;
+      case "preguntados":
+        this.coleccionActual = "PuntajePreguntados"
+        this.firestoreService.getCollection(this.coleccionActual).subscribe(
+          puntajes=>{
+            this.tablaPuntajes = puntajes;
+        });
     }
   }
 }

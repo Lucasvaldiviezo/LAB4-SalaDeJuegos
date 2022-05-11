@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-ahorcado',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ahorcado.component.css']
 })
 export class AhorcadoComponent implements OnInit {
+  @Output() enviarPuntaje:EventEmitter<any>= new EventEmitter<any>();  
   todasLasPalabras: string[] = ['AGUACATE','MANZANA','NARANJA','CASA','MATERIAS','ESCUELA','ESPAÑOL','CASCO','OLAS','FAROLA','FOCO','ZANAHORIA','MAMUT','CAFE','PEGAR','LAPICERA',
   'IMAN','COSAS','PROGRAMACION','ARBOL','PANTALON','BIENVENIDO','VOLVER','YAGUARETE'];
   palabra = '';
@@ -75,6 +76,10 @@ export class AhorcadoComponent implements OnInit {
       console.log('La letra ' + letra + ' no existe');
       this.intentos++;
     }
+  }
+
+  enviarTablaPuntajes(puntaje:any){
+    this.enviarPuntaje.emit(puntaje);
   }
   
 }

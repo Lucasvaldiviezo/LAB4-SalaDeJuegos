@@ -16,6 +16,7 @@ export class PokemonComponent implements OnInit {
   adivino:boolean = false;
   numero:number = 0;
   puntos:number = 0;
+  sprite:string="";
   constructor(public pokemonService:PokemonService) {
     
   }
@@ -37,6 +38,7 @@ export class PokemonComponent implements OnInit {
     this.numero = this.getRandomInt(0,150);
     this.pokemonService.getOnePokemon(this.numero).subscribe((resp:any)=>{
       this.pokemon = resp;
+      this.sprite = this.pokemon.sprites.front_default;
     });
   }
 
@@ -48,8 +50,10 @@ export class PokemonComponent implements OnInit {
         this.mostrar = true;
         this.puntos++;
         this.pokemonResp = "";
+        this.adivino = true;
         setTimeout(()=>{
           this.mostrar=false;
+          this.adivino=false;
           this.elegirPokemon();
         }, 800); 
       }else

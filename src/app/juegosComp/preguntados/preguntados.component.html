@@ -1,0 +1,29 @@
+<div class="container">
+    <div *ngIf="menu;else juego" class="menuStart">
+        <p class="menuTitulo">¡Adivina el pais!</p>
+        <img src="assets/preguntados/paisesLogo.png" class="country-img-menu"><br>
+        <button class="botonComenzar" (click)="comenzar()" *ngIf="!cargando">Comenzar</button>
+        <img *ngIf="cargando" src="assets/preguntados/cargando.gif" class="gifCargando">
+    </div>
+    <ng-template #juego>
+            <p class="puntaje">Puntos:{{puntos}}</p>
+            <div class="contenedor-bandera">
+                <img [src]="paisCorrecto.flags.png" class="country-img">
+            </div>
+            <div *ngIf="!perdio && !adivino" class="respuestasContenedor">
+                <p class="adivina">Adivina el Pais:</p>
+                <button class="botonRespuesta1" (click)="verificarRespuesta(respuesta1)" >{{respuesta1}}</button>    
+                <button class="botonRespuesta2" (click)="verificarRespuesta(respuesta2)" >{{respuesta2}}</button>    
+                <button class="botonRespuesta3" (click)="verificarRespuesta(respuesta3)" >{{respuesta3}}</button>    
+                <button class="botonRespuesta4" (click)="verificarRespuesta(respuesta4)" >{{respuesta4}}</button>    
+            </div>
+            <div *ngIf="perdio" class="respuestasContenedor">
+                <p class="infoFinal"> PERDISTE! </p>
+                <p class="infoFinal"> El pais era: {{paisCorrecto.name.common}}</p><br>
+                <button class="botonVolverAJugar" (click)="comenzar()">Volver a Jugar</button>
+            </div>
+            <div *ngIf="adivino" class="respuestasContenedor">
+                <p class="infoAdivino"> CORRECTO! </p>
+            </div>
+    </ng-template>
+</div>

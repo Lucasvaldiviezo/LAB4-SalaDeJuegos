@@ -1,13 +1,13 @@
 <div class="container">
     <div *ngIf="menu;else juego" class="menuStart">
-        <p class="menuTitulo">Pokemon!</p>
-        <img src="assets/pokemon/boton.png" class="pokeball-img-menu"><br>
+        <p class="menuTitulo">Adivina el Pokemon!</p>
+        <img src="assets/pokemon/PokemonLogo.png" class="pokeball-img-menu"><br>
         <button class="botonComenzar" (click)="comenzar()">Comenzar</button>
     </div>
     <ng-template #juego>
             <p class="puntaje">Puntos:{{puntos}}</p>
             <div class="contenedor-pokedex">
-                <img src="assets/pokemon/firered-leafgreen/{{numero}}.png" [ngClass]="mostrar ? 'pokemon-img-normal' : 'pokemon-img-black'"class="pokemon-img">
+                <img [src]="sprite" [ngClass]="mostrar ? 'pokemon-img-normal' : 'pokemon-img-black'"class="pokemon-img">
             </div>
             <div *ngIf="!perdio && !adivino"   class="jugando">
                 <p class="adivina">Adivina el Pokemon:</p>
@@ -18,6 +18,9 @@
                 <p class="infoFinal"> PERDISTE! </p>
                 <p class="infoFinal"> El pokemon era: {{pokemon.name | uppercase}}</p><br>
                 <button class="botonVolverAJugar" (click)="comenzar()">Volver a Jugar</button>
+            </div>
+            <div *ngIf="adivino" class="jugando">
+                <p class="infoAdivino"> CORRECTO! </p>
             </div>
     </ng-template>
 </div>
