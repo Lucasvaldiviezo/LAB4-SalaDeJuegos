@@ -8,6 +8,7 @@ import { PokemonComponent } from 'src/app/juegosComp/pokemon/pokemon.component';
 import { PuntajeComponent } from 'src/app/juegosComp/puntaje/puntaje.component';
 import { FormsModule } from '@angular/forms';
 import { PreguntadosComponent } from 'src/app/juegosComp/preguntados/preguntados.component';
+import { ChatComponent } from 'src/app/juegosComp/chat/chat.component';
 
 
 
@@ -19,6 +20,7 @@ import { PreguntadosComponent } from 'src/app/juegosComp/preguntados/preguntados
     PokemonComponent,
     PreguntadosComponent,
     PuntajeComponent,
+    ChatComponent
   ],
   imports: [
     CommonModule,

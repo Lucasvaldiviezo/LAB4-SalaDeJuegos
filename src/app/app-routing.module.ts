@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './page/login/login.component';
 import { NotFoundComponent } from './page/not-found/not-found.component';
-import { HomeComponent } from './home/home.component';
-import { QuienSoyComponent } from './quien-soy/quien-soy.component';
+import { HomeComponent } from './page/home/home.component';
+import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
+import { PanelUsuarioComponent } from './page/panel-usuario/panel-usuario.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch:'full'},
   {path:'home', component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'sobreMi',component:QuienSoyComponent},
+  {path:'userPanel',component:PanelUsuarioComponent},
   {path:'juegos', loadChildren: () => import('./modules/juegos/juegos.module').then(m=>m.JuegosModule)},
-  {path:'chat', loadChildren: () => import('./modules/chat/chat.module').then(m=>m.ChatModule)},
   {path:'**', component:NotFoundComponent}
 ];
 

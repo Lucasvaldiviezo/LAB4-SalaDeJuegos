@@ -12,9 +12,20 @@ export class FirestoreService {
     return this.firestore.collection(coleccion).valueChanges();
   }
 
-  addToChat(chat:any)
+  addToChat(chat:any,id:number)
   {
-    this.firestore.collection('Chat').add(chat);
+    let idDocument = id.toString();
+    this.firestore.collection('Chat').doc(idDocument).set({
+        emisor: chat.emisor,
+        usuario: chat.usuario,
+        texto: chat.texto,
+        hora: chat.hora,
+    });
+  }
+
+  addUsuario(coleccion:any,usuario:any)
+  {
+    this.firestore.collection(coleccion).add(usuario);
   }
 
   actualizarColeccionCompleta(coleccion:any,datos:any)
@@ -41,6 +52,11 @@ export class FirestoreService {
       puntaje: puntaje.puntaje,
       usuario: puntaje.usuario,
     });
+  }
+
+  actualizarURL(coleccion:string,id:string,url:string)
+  {
+    this.firestore.collection(coleccion).doc(id).update({urlImagen: url});
   }
 
 }

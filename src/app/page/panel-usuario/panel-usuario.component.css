@@ -1,0 +1,119 @@
+body{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    overflow: hidden; 
+    background-image: url('src\assets\fondo.jpg');
+}
+
+.container{
+    position: absolute;
+    background-color: rgb(25, 25, 53);
+    width: 600px;
+    height: 700px;
+}
+
+.infoBox{
+    position: relative;
+    display:inline;
+    top:20%;
+    left:10%;
+}
+
+.datosUsuario{
+    position: relative;
+    display: block;
+    left:60%;
+    bottom: 15%;
+   
+}
+
+.infoUsuario{
+    color:white;
+    text-align: center;
+    position: relative;
+    border-width: 4px;
+    border-style:outset;
+    border-color: red;
+    padding: 5px 5px;
+}
+
+.textoInfo{
+    color:white;
+    position: relative;
+    padding: 10px 10px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.mostradorDeImagen{
+    width:128px;
+	height:128px;
+	position: relative;
+	overflow: hidden;
+	border-radius:50%;
+	background-color: rgb(255, 255, 255);
+	border: 5px solid white;
+    left:36.5%;
+    top:8%;
+}
+.muestraImagen{
+    position: relative;
+    top:1%;
+  	width:100%;
+  	height:auto;
+}
+
+.botonCambioFoto{
+    position: absolute;
+    left:33.5%;
+    top:30%;
+    background-color: rgb(0, 0, 0);
+    border-style: groove;
+    border-width: 3px;
+    border-color: white;
+    color: white;
+}
+
+.botonCambioFoto:hover{
+    background-color: rgb(0, 0, 0);
+    border-style: groove;
+    border-width: 3px;
+    border-color: rgb(83, 151, 100);
+}
+
+#inputFile{
+    display:none;
+}
+
+.labelInputFile{
+    position: relative;
+    width:4rem;
+    height: 4rem;
+    background-color: lightblue;
+    border-radius: 100%;
+    padding: 1rem;
+    box-shadow: 0 0 10px -1px rgb(61, 61, 61);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor:pointer;
+    user-select: none;
+}
+
+.labelInputFile img{
+    width:3rem;
+    height: 3rem;
+}
+
+.labelInputFile:active{
+    transform: scale(0.9);
+}
+
+.cambiarFoto{
+    position: relative;
+    top:12%;
+    display: flex;
+    justify-content: center;
+}

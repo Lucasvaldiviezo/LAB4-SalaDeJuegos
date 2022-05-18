@@ -1,0 +1,27 @@
+<body>
+    <div class="container">
+        <div class="mostradorDeImagen">
+            <img src="{{fotoActual}}" alt="imagenSubida" class="muestraImagen">
+        </div>
+        <div class="cambiarFoto">
+            <input type="file" id="inputFile" accept=".png, .jpg, .jpeg" multiple (change)="obtenerImagen($event)">
+            <label class="textoInfo">Cambiar Foto de Perfil:</label>
+            <label for="inputFile" class="labelInputFile">
+                <img src="https://icons-for-free.com/download-icon-cloud+upload+file+storage+upload+icon-1320190558968694328_512.png" alt="upload file">
+            </label>
+        </div>
+        <div class="infoBox">
+            <label class="textoInfo">Usuario:</label><br><br>
+            <label class="textoInfo">Email:</label><br><br>
+            <label class="textoInfo">Fecha de Nacimiento:</label><br><br>
+            <label class="textoInfo">Fecha de Creacion de Cuenta:</label> 
+        </div>
+        <div class="datosUsuario">
+            <input type="text" class="infoUsuario" disabled value="{{usuarioActual.username}}"><br><br>
+            <input type="text" class="infoUsuario" disabled value="{{usuarioActual.email}}"><br><br>
+            <input type="text" class="infoUsuario" disabled value="{{usuarioActual.fechaNacimiento}}"><br><br>
+            <input type="text" class="infoUsuario" disabled value="{{usuarioActual.fechaCreacion | date: 'short'}}">
+        </div>
+        <button (click)="guardarDatos()">Guardar</button>
+    </div> 
+</body>
