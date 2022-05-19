@@ -5,7 +5,7 @@ import firebase from 'firebase/compat/app';
   providedIn: 'root'
 })
 export class AuthService {
-
+  isUserLogged:boolean = false;
   constructor(public afauth: AngularFireAuth ) { }
 
   async register(email:string,password:string)
@@ -22,6 +22,7 @@ export class AuthService {
   async login(email:string,password:string)
   {
     try{
+      this.isUserLogged=true;
       return await this.afauth.signInWithEmailAndPassword(email,password);
     }catch (error)
     {
@@ -48,6 +49,7 @@ export class AuthService {
 
   logout()
   {
+    this.isUserLogged = false;
     this.afauth.signOut();
   }
 }

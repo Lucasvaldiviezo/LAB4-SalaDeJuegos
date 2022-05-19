@@ -37,6 +37,7 @@ export class NavmenuComponent implements OnInit {
   {
     if(this.userLogged != null)
     {
+      this.authService.isUserLogged = true;
       for(let i=0;i < this.listaUsuarios.length;i++)
       {
         if(this.userLogged.email == this.listaUsuarios[i].email)

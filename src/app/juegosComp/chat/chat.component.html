@@ -5,9 +5,6 @@
         <p>{{usuarioPopUp.email}}</p>
         <img class="imagenPerfilPopUp" src="{{usuarioPopUp.urlImagen}}">
     </div>
-    <div *ngIf="!userLogged">
-        <p class="mensajitoDeslogeado">DEBE ESTAR LOGEADO PARA VER EL CHAT</p>
-    </div>
     <div *ngIf="userLogged && !mostrarChat" class="chatIconContainer" (click)="mostrarChat=true">
         <img src="assets/iconoChat.png" class="chatIcon">
     </div>

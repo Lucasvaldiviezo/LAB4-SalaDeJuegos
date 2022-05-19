@@ -2,7 +2,7 @@
     <div *ngIf="menu;else juego" class="menuStart">
         <p class="menuTitulo">Mayor o Menor!</p>
         <img src="assets/mayorMenor/mayorMenor.png" class="mayorMenor-img-menu"><br>
-        <button class="botonComenzar" (click)="elegirCarta()">Comenzar</button>
+        <button class="botonComenzar" (click)="comenzar()">Comenzar</button>
     </div>
     <ng-template #juego>
         <div *ngIf="!perdio">
@@ -18,7 +18,7 @@
         <div *ngIf="perdio" class="pantallaFinal">
             <p class="infoFinal"> PERDISTE! </p>
             <p class="infoFinal">Tu puntaje fue: {{puntos}}</p>
-            <button class="btnVolverAJugar" (click)="elegirCarta()">Volver a Jugar</button>
+            <button class="btnVolverAJugar" (click)="comenzar()">Volver a Jugar</button>
             <button class="btnVolverAMenu" (click)="volverAMenu()">Volver al Menu</button>
         </div>
     </ng-template>

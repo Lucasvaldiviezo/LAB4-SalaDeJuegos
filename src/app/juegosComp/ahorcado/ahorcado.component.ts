@@ -17,13 +17,29 @@ export class AhorcadoComponent implements OnInit {
   menu = true;
   letras = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
   numPalabra:number = 0;
-  puntos:number = -1;
+  puntos:number = 0;
   constructor() {
   }
 
   ngOnInit(): void {
   }
 
+  comenzar()
+  {
+    this.menu = false;
+    this.gano = false;
+    this.perdio = false;
+    this.intentos = 0;
+    this.elegirPalabra();
+    this.puntos=0;
+  }
+  continuar()
+  {
+    this.gano = false;
+    this.perdio = false;
+    this.intentos = 0;
+    this.elegirPalabra();
+  }
   elegirPalabra()
   {
     this.numPalabra = this.getRandomInt(0,this.todasLasPalabras.length-1);
@@ -31,9 +47,7 @@ export class AhorcadoComponent implements OnInit {
     this.palabra = this.todasLasPalabras[this.numPalabra];
     this.menu = false;
     this.gano = false;
-    this.perdio = false;
-    this.intentos = 0;
-    this.puntos++;
+    this.perdio = false;   
   }
 
   getRandomInt(min:number, max:number) : number{
@@ -60,12 +74,14 @@ export class AhorcadoComponent implements OnInit {
   verificaGane() {
     const palabraArr = this.palabraOculta.split(' ');
     const palabraEvaluar = palabraArr.join('');
-    if ( palabraEvaluar === this.palabra ) {
+    if ( palabraEvaluar == this.palabra ) {
       this.gano = true;
+      this.puntos++;
+      this.palabra = "";
     }
     if ( this.intentos >= 9 ){
       this.perdio = true;
-      this.puntos = 0;
+      this.enviarTablaPuntajes(this.puntos);
     }
   }
 
@@ -79,9 +95,7 @@ export class AhorcadoComponent implements OnInit {
 
   existeLetra( letra:string ) {
     if ( this.palabra.indexOf( letra ) >= 0) {
-      console.log('La letra ' + letra + ' existe');
     } else {
-      console.log('La letra ' + letra + ' no existe');
       this.intentos++;
     }
   }

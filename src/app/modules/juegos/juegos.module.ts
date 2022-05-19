@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule} from '@angular/common';
+import { CommonModule, DatePipe} from '@angular/common';
 import { JuegosRoutingModule } from './juegos-routing.module';
 import { JuegosComponent } from './juegos.component';
 import { AhorcadoComponent } from 'src/app/juegosComp/ahorcado/ahorcado.component';
@@ -25,9 +25,9 @@ import { ChatComponent } from 'src/app/juegosComp/chat/chat.component';
     JuegosRoutingModule,
     FormsModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers: [DatePipe],
 })
 export class JuegosModule { 
 
-  ahorcado = false;
 }

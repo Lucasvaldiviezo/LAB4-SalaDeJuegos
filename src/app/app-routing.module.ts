@@ -7,15 +7,16 @@ import { HomeComponent } from './page/home/home.component';
 import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
 import { PanelUsuarioComponent } from './page/panel-usuario/panel-usuario.component';
 import { EncuestaComponent } from './page/encuesta/encuesta.component';
+import { GuardianAutentificadorGuard } from './guard/guardian-autentificador.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch:'full'},
   {path:'home', component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'sobreMi',component:QuienSoyComponent},
-  {path:'userPanel',component:PanelUsuarioComponent},
-  {path:'encuesta',component:EncuestaComponent},
-  {path:'juegos', loadChildren: () => import('./modules/juegos/juegos.module').then(m=>m.JuegosModule)},
+  {path:'userPanel',component:PanelUsuarioComponent, canActivate:[GuardianAutentificadorGuard]},
+  {path:'encuesta',component:EncuestaComponent, canActivate:[GuardianAutentificadorGuard]},
+  {path:'juegos',canActivate:[GuardianAutentificadorGuard], loadChildren: () => import('./modules/juegos/juegos.module').then(m=>m.JuegosModule)},
   {path:'**', component:NotFoundComponent}
 ];
 

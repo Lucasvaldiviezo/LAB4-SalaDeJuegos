@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { FirestoreService } from 'src/app/servicios/firestore.service';
 @Component({
   selector: 'app-encuesta',
@@ -7,10 +8,21 @@ import { FirestoreService } from 'src/app/servicios/firestore.service';
   styleUrls: ['./encuesta.component.css']
 })
 export class EncuestaComponent implements OnInit {
-
+  isUserLogged = this.authService.getUserLogged();
+  userLogged:any;
+  usuarioActual:any;
+  listaUsuarios:any
   public formRegistro: FormGroup;
   opcionesJuegos:string[] = [];
-  constructor(private fb: FormBuilder, public fireStoreService:FirestoreService) { 
+  constructor(private fb: FormBuilder, public fireStoreService:FirestoreService, public authService:AuthService ) { 
+    this.isUserLogged.subscribe(usuario=>{
+      this.userLogged = usuario;
+    });
+    this.fireStoreService.getCollection('datosUsuarios').subscribe(
+      resp=>{
+        this.listaUsuarios = resp;
+        this.llenarDatos();
+    });
     this.formRegistro = this.fb.group({
       'nombre': ['', [Validators.required, this.spacesValidator]],
       'apellido': ['', Validators.required],
@@ -24,7 +36,6 @@ export class EncuestaComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 
 
   private spacesValidator(control: AbstractControl): null | object {
@@ -45,6 +56,23 @@ export class EncuestaComponent implements OnInit {
     }
   }
 
+  llenarDatos()
+  {
+    if(this.userLogged != null)
+    {
+      for(let i=0;i < this.listaUsuarios.length;i++)
+      {
+        if(this.userLogged.email == this.listaUsuarios[i].email)
+        {
+          let fecha:Date = new Date(this.listaUsuarios[i].fechaCreacion);
+          this.usuarioActual = this.listaUsuarios[i];
+          this.usuarioActual.fechaCreacion = fecha;
+          break;
+        }
+      }
+    } 
+  }
+
   enviarEncuentas()
   {
     let juegosElegidos = "";
@@ -60,6 +88,8 @@ export class EncuestaComponent implements OnInit {
     const juegos = this.formRegistro.getRawValue().juegos;
     const opinion = this.formRegistro.getRawValue().opinion;
     let encuesta = {
+      usuario: this.usuarioActual.username,
+      email: this.usuarioActual.email,
       nombre: nombre,
       apellido: apellido,
       edad: edad,
@@ -77,5 +107,4 @@ export class EncuestaComponent implements OnInit {
       this.formRegistro.controls['opinion'].setValue("");
     }
   }
-
 }

@@ -2,7 +2,7 @@
     <div *ngIf="menu;else juego" class="menuStart">
         <p class="menuTitulo">Ahorcado!</p>
         <img src="assets/ahorcado/9.png" class="ahorcado-img-menu"><br>
-        <button class="botonComenzar" (click)="elegirPalabra()">Comenzar</button>
+        <button class="botonComenzar" (click)="comenzar()">Comenzar</button>
     </div>
     <ng-template #juego>
         <div class="row">
@@ -17,13 +17,13 @@
         </div>
         <div *ngIf="gano" class="pantallaFinal">
             <p class="infoFinal">¡Adivinaste!</p><br>
-            <button class="botonVolverAJugar" (click)="elegirPalabra()">Continuar</button>
+            <button class="botonCotinuar" (click)="continuar()">Continuar</button>
         </div>
         
         <div *ngIf="perdio" class="pantallaFinal">
             <p class="infoFinal"> PERDISTE! </p>
             <p class="infoFinal"> La palabra era: {{ palabra }} </p><br>
-            <button class="botonVolverAJugar" (click)="elegirPalabra()">Volver a Jugar</button>
+            <button class="botonVolverAJugar" (click)="comenzar()">Volver a Jugar</button>
             <button class="botonVolverAMenu" (click)="volverAMenu()">Volver al Menu</button>
         </div>
         <div class="letras" *ngIf="!gano && !perdio">  

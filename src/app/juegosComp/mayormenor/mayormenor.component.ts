@@ -22,7 +22,6 @@ export class MayormenorComponent implements OnInit {
   }
   elegirCarta()
   {
-    this.puntos = 0;
     this.perdio = false;
     this.menu = false;
     this.cartaActual=this.getRandomInt(1,13);
@@ -33,6 +32,13 @@ export class MayormenorComponent implements OnInit {
       this.proximaCarta = this.getRandomInt(1,13);
     }
     this.elegirPalo();
+  }
+  comenzar()
+  {
+    this.perdio = false;
+    this.menu = false;
+    this.puntos = 0;
+    this.elegirCarta();
   }
   elegirPalo()
   {
@@ -61,6 +67,7 @@ export class MayormenorComponent implements OnInit {
       }else
       {
         this.perdio = true;
+        this.enviarTablaPuntajes(this.puntos);
       }
     }else
     {
@@ -69,6 +76,7 @@ export class MayormenorComponent implements OnInit {
       }else
       {
         this.perdio = true;
+        this.enviarTablaPuntajes(this.puntos);
       }
     }
 
@@ -98,7 +106,6 @@ export class MayormenorComponent implements OnInit {
     this.menu = true;
     this.perdio = false;
     this.ocultar = false;
-    this.puntos = 0;
     this.enviarTablaPuntajes(this.puntos);
   }
 
@@ -111,5 +118,6 @@ export class MayormenorComponent implements OnInit {
 
   enviarTablaPuntajes(puntaje:any){
     this.enviarPuntaje.emit(puntaje);
+    console.log("ENTRE");
   }
 }

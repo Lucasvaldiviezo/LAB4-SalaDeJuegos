@@ -7,7 +7,6 @@ import { Component, OnInit, Input,Output,EventEmitter } from '@angular/core';
   styleUrls: ['./juegos.component.css']
 })
 export class JuegosComponent implements OnInit {
-  //@Output() juegoActual:EventEmitter<any>= new EventEmitter<any>();
   juego:string = "";  
   ahorcado:boolean = false;
   mayorMenor:boolean = false;

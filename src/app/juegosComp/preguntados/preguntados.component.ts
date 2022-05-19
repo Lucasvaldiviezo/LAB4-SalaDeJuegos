@@ -66,6 +66,7 @@ export class PreguntadosComponent implements OnInit {
     }else
     {
       this.perdio=true;
+      this.enviarTablaPuntajes(this.puntos);
     }
   }
 
@@ -73,8 +74,6 @@ export class PreguntadosComponent implements OnInit {
   {
     this.menu = true;
     this.perdio = false;
-    this.puntos = 0;
-    this.enviarTablaPuntajes(this.puntos);
   }
 
   getRandomInt(min:number, max:number) : number{
