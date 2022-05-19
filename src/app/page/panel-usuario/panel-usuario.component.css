@@ -117,3 +117,22 @@ body{
     display: flex;
     justify-content: center;
 }
+
+.botonGuardar{
+    position: absolute;
+    background-color: white;
+    border-width: 2px;
+    border-style:double;
+    border-color: red;
+    top:90%;
+    left:36%;
+    width: 150px;
+    height: 40px;
+    text-align: center;
+}
+
+.botonGuardar:hover{
+    border-width: 7px;
+    border-style:double;
+    border-color: rgb(13, 138, 2);
+}

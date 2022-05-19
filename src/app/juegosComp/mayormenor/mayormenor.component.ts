@@ -93,6 +93,16 @@ export class MayormenorComponent implements OnInit {
     this.elegirPalo();
   }
 
+  volverAMenu()
+  {
+    this.menu = true;
+    this.perdio = false;
+    this.ocultar = false;
+    this.puntos = 0;
+    this.enviarTablaPuntajes(this.puntos);
+  }
+
+
   getRandomInt(min:number, max:number) : number{
     min = Math.ceil(min);
     max = Math.floor(max);

@@ -1,0 +1,90 @@
+<body>
+    <div class="container">
+        <form [formGroup]="formRegistro" (ngSubmit)="enviarEncuentas()">
+            <div>
+                <label for="nombre" class="label">Nombre: </label>
+                <input type="text" class="input" id="nombre" placeholder="Ingrese Nombre" formControlName="nombre">
+                <small class="invalid" 
+                *ngIf="formRegistro.controls['nombre'].errors?.['required'] && formRegistro.controls['nombre'].touched">
+                El Nombre es requerido
+                </small>
+                <small class="invalid" *ngIf="formRegistro.controls['nombre'].errors?.['containsSpaces'] && formRegistro.controls['nombre'].touched">
+                El Nombre no puede contener espacios
+                </small>
+            </div>
+            <div>
+                <label for="apellido" class="label">Apellido: </label>
+                <input type="text" class="input" id="apellido" placeholder="Ingrese Apellido" formControlName="apellido">
+                <small class="invalid" 
+                *ngIf="formRegistro.controls['apellido'].errors?.['required'] && formRegistro.controls['apellido'].touched">
+                El Apellido es requerido
+                </small>
+                <small class="invalid" *ngIf="formRegistro.controls['apellido'].errors?.['containsSpaces'] && formRegistro.controls['apellido'].touched">
+                El Apellido no puede contener espacios
+                </small>
+            </div>
+            <div>
+                <label for="edad" class="form-label">Edad: </label>
+                <input type="number" class="form-control" id="edad" placeholder="Ingrese edad" formControlName="edad">
+                <small class="invalid"
+                    *ngIf="formRegistro.controls['edad'].errors?.['required'] && formRegistro.controls['edad'].touched">
+                    La edad es requerida
+                </small>
+                <small class="invalid"
+                    *ngIf="formRegistro.controls['edad'].errors?.['min'] || 
+                    formRegistro.controls['edad'].errors?.['max']">
+                    La edad debe ser de 18 a 99 años
+                </small>
+            </div><br>
+            <div>
+                <label for="telefono" class="form-label">Telefono: </label>
+                <input type="text" class="form-control" id="telefono" placeholder="Ingrese Telefono" formControlName="numeroTelefono" >
+                <small class="invalid"
+                    *ngIf="formRegistro.controls['numeroTelefono'].errors?.['required'] && formRegistro.controls['numeroTelefono'].touched">
+                    El telefono es requerido
+                </small>
+                <small class="invalid" *ngIf="formRegistro.controls['numeroTelefono'].errors?.['pattern']">
+                    Ingrese un numero correcto
+                </small>
+            </div><br>
+            <div class="radio-inline">
+                <label for="gender" class="label">Genero:</label><br>
+                <select id="gender" formControlName="genero">
+                    <option class="option" value="masculino">Masculino</option>
+                    <option class="option" value="femenino">Femenino</option>
+                    <option class="option" value="otro">Otro</option>
+                </select>
+            <small class="invalid" 
+                *ngIf="formRegistro.controls['genero'].errors?.['required'] && formRegistro.controls['genero'].touched">
+                El genero es requerido
+            </small>
+            </div><br>
+            <div>
+                <label for="gender" class="label">¿Que juegos te gustaron?</label><br>
+                <input type="checkbox" class="form-check-input" id="juegos" value="AdivinaElPokemon"  (change)="Seleccionado($event)" formControlName="juegos" > 
+                <label for="juegos" class="form-check-label" for="terminos" >Adivina el Pokemon</label>
+                <input type="checkbox" class="form-check-input" id="juegos" value="AdivinaElPais" (change)="Seleccionado($event)" formControlName="juegos" > 
+                <label for="juegos" class="form-check-label" for="terminos" >Adivina el Pais</label>
+                <input type="checkbox" class="form-check-input" id="juegos"  value="Ahorcado"(change)="Seleccionado($event)" formControlName="juegos" > 
+                <label for="juegos" class="form-check-label" for="terminos" >Ahorcado</label>
+                <input type="checkbox" class="form-check-input" id="juegos" value="MayorMenor" (change)="Seleccionado($event)" formControlName="juegos">
+                <label for="juegos" class="form-check-label" for="terminos" >Mayor o Menor</label>
+                <small class="invalid" 
+                *ngIf="formRegistro.controls['juegos'].errors?.['required'] && formRegistro.controls['juegos'].touched">
+                Seleccione al menos 1 juego
+                </small>
+            </div><br>
+            <div>
+                <label for="opinion" class="label">Comentarios sobre que mejorar: </label><br>
+                <textarea placeholder="Dejenos un comentario" formControlName="opinion"></textarea>
+                <small class="invalid" 
+                *ngIf="formRegistro.controls['opinion'].errors?.['required'] && formRegistro.controls['opinion'].touched">
+                 Dejenos una opinion
+                </small>
+            </div>
+            <div>
+                <input type="submit" class="btnEnviar" value="Enviar" [disabled]="formRegistro.invalid">
+            </div>
+        </form>
+    </div>
+</body>

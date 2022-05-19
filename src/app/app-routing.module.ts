@@ -6,6 +6,7 @@ import { NotFoundComponent } from './page/not-found/not-found.component';
 import { HomeComponent } from './page/home/home.component';
 import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
 import { PanelUsuarioComponent } from './page/panel-usuario/panel-usuario.component';
+import { EncuestaComponent } from './page/encuesta/encuesta.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch:'full'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'sobreMi',component:QuienSoyComponent},
   {path:'userPanel',component:PanelUsuarioComponent},
+  {path:'encuesta',component:EncuestaComponent},
   {path:'juegos', loadChildren: () => import('./modules/juegos/juegos.module').then(m=>m.JuegosModule)},
   {path:'**', component:NotFoundComponent}
 ];

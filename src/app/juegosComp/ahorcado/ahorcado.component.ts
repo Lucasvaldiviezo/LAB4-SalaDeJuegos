@@ -69,6 +69,14 @@ export class AhorcadoComponent implements OnInit {
     }
   }
 
+  volverAMenu()
+  {
+    this.menu = true;
+    this.perdio = false;
+    this.puntos = 0;
+    this.enviarTablaPuntajes(this.puntos);
+  }
+
   existeLetra( letra:string ) {
     if ( this.palabra.indexOf( letra ) >= 0) {
       console.log('La letra ' + letra + ' existe');

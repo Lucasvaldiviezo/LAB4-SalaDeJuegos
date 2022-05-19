@@ -153,3 +153,13 @@
     background-color: rgb(190, 59, 59);
     border-radius: 10%;
 }
+
+.btnVolverAMenu{
+    position: relative;
+    padding: 10px 10px 10px;
+    width: 30%;
+    top:25%;
+    left:1%;
+    background-color: rgb(101, 159, 206);
+    border-radius: 10%;
+}

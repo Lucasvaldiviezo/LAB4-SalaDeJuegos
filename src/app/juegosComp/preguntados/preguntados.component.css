@@ -226,3 +226,20 @@
     text-align: center;
     bottom: 25%;
 }
+
+.botonVolverAMenu{
+    position: relative;
+    background-color: #55cab1;
+    color: #fff;
+    font-size: 100%;
+    font-family: "Flexo-Demi",arial,sans-serif;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    line-height: 125%;
+    padding: 0.75em 1.25em 0.675em;
+    vertical-align: middle;
+    text-align: center;
+    bottom: 25%;
+    left:3%;
+}

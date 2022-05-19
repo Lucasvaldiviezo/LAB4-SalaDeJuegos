@@ -14,10 +14,10 @@ body{
     text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff; 
 }
 .cardContainer{
-    width:300px;
-    height: 500px;
+    width:500px;
+    height: 600px;
     position: fixed;
-    right:0.5rem;
+    left:0.5rem;
     bottom:0.5rem;
 }
 
@@ -68,7 +68,7 @@ body{
 
 .chatIconContainer{
     position: fixed;
-    right:0.5rem;
+    left:0.5rem;
     bottom:0.5rem;
     display:flex;
     justify-content: center;
@@ -103,10 +103,36 @@ body{
     color: black;
     text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
     font-weight: 500; 
+    cursor: pointer;
 }
 
 .horaMensaje{
     color: rgb(187, 187, 187);
     font-size: 13px;
     float: right;
+}
+
+.profilePopUp{
+    position: absolute;
+    z-index: 100;
+    top:5%;
+    left:9%;
+    background-color: rgb(124, 0, 0);
+    width: 200px;
+    height: 200px;
+    border-style:outset;
+    border-width: 4px;
+    border-color: black;
+    text-align: center;
+    font-weight: 800;
+    color: white;
+}
+
+.imagenPerfilPopUp
+{
+    width: 80px;
+    height: auto;
+    border-style:inset;
+    border-width: 4px;
+    border-color: rgb(255, 255, 255);
 }

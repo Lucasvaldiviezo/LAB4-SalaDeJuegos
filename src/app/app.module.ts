@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { PanelUsuarioComponent } from './page/panel-usuario/panel-usuario.component';
+import { EncuestaComponent } from './page/encuesta/encuesta.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { PanelUsuarioComponent } from './page/panel-usuario/panel-usuario.compon
     NavmenuComponent,
     NotFoundComponent,
     PanelUsuarioComponent,
+    EncuestaComponent
   ],
   imports: [
     BrowserModule,

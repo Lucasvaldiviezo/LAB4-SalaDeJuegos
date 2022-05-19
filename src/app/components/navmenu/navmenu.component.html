@@ -12,12 +12,8 @@
       </ul>
       <a *ngIf="isUserLogged|async as user;else login_buttons">
         {{usuarioActual.username}}
-        <img style="border-radius: 100%;" *ngIf="usuarioActual.fotoURL;else other_photo" src="{{usuarioActual.fotoURL}}" 
-          width="30" height="30" class="d-inline-block align-top" alt="">
-        <ng-template #other_photo>
-          <img style="border-radius: 100%;"  src="./assets/user.png" 
-          width="30" height="30" class="d-inline-block align-top" alt="">
-        </ng-template>
+        <img style="border-radius: 100%;" *ngIf="usuarioActual.urlImagen" src="{{usuarioActual.urlImagen}}" 
+          width="40" height="40" class="d-inline-block align-top" alt="">
         <button class="btn btn-warning" (click)="logout()">Logout</button>
         <button routerLink="/userPanel" type="button" class="btn btn-info">User Panel</button>  
       </a>

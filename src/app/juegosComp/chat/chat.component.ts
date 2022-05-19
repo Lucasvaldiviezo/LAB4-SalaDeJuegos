@@ -10,10 +10,14 @@ import { FirestoreService } from 'src/app/servicios/firestore.service';
 
 export class ChatComponent implements OnInit {
   today:Date;
+  listaUsuarios:any;
+  usuarioActual:any;
   userLogged:any;
   nuevoMensaje:string = '';
   mostrarChat:boolean = false;
-  constructor(public authService: AuthService, public firestoreService:FirestoreService) {
+  profileIsVisible:boolean=false;
+  usuarioPopUp:any;
+  constructor(public authService: AuthService, public fireStoreService:FirestoreService) {
     this.today = new Date();
   }
 
@@ -22,26 +26,27 @@ export class ChatComponent implements OnInit {
     this.authService.getUserLogged().subscribe(usuario=>{
       this.userLogged = usuario;
     });
-    this.firestoreService.getCollection('Chat').subscribe(
+    this.fireStoreService.getCollectionWithId('Chat',"chatId").subscribe(
       chat=>{
         this.mensajes = chat;
+        this.mensajes.sort(function(elemento1:any,elemento2:any){
+          return elemento1.id - elemento2.id;
+        });
+      this.fireStoreService.getCollectionWithId('datosUsuarios',"usuarioId").subscribe(
+        resp=>{
+          this.listaUsuarios = resp;
+          this.buscarUsuarioPorMail();
+      });
     });
   }
 
   enviarMensaje()
   {
       this.today = new Date();
-      let usuarioTemp:string;
-      if(this.userLogged.displayName != null)
-      {
-        usuarioTemp = this.userLogged.displayName;
-      }else
-      {
-        usuarioTemp = this.userLogged.email;
-      }
+      console.log(this.usuarioActual);
       let mensaje={
         emisor: this.userLogged.uid,
-        usuario: usuarioTemp,
+        usuario: this.usuarioActual.username,
         texto: this.nuevoMensaje,
         hora: this.today.toString(),
       }
@@ -52,8 +57,39 @@ export class ChatComponent implements OnInit {
         setTimeout(() => {
           this.scrollToTheLastElementByClassName();
         }, 10);
-        this.firestoreService.addToChat(mensaje,this.mensajes.length);
+        this.fireStoreService.addToChat(mensaje,this.mensajes.length);
       }
+  }
+
+  buscarUsuarioPorMail(){
+    for(let i=0;i<this.listaUsuarios.length;i++)
+    {
+      if(this.userLogged.email == this.listaUsuarios[i].email)
+      {
+        this.usuarioActual = this.listaUsuarios[i];
+        break;
+      }
+    }
+  }
+  buscarUsuario(usuarioABuscar:any){
+    for(let i=0;i<this.listaUsuarios.length;i++)
+    {
+      if(usuarioABuscar == this.listaUsuarios[i].username)
+      {
+        this.usuarioPopUp = this.listaUsuarios[i];
+        break;
+      }
+    }
+  }
+
+  mostrarPerfil(mensaje:any)
+  {
+    this.profileIsVisible=true;
+    this.buscarUsuario(mensaje.usuario);
+  }
+  esconderPefil(mensaje:any)
+  {
+    this.profileIsVisible = false;
   }
 
   scrollToTheLastElementByClassName(){

@@ -6,11 +6,9 @@ import { AhorcadoComponent } from 'src/app/juegosComp/ahorcado/ahorcado.componen
 import { MayormenorComponent } from 'src/app/juegosComp/mayormenor/mayormenor.component';
 import { PokemonComponent } from 'src/app/juegosComp/pokemon/pokemon.component';
 import { PuntajeComponent } from 'src/app/juegosComp/puntaje/puntaje.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { PreguntadosComponent } from 'src/app/juegosComp/preguntados/preguntados.component';
 import { ChatComponent } from 'src/app/juegosComp/chat/chat.component';
-
-
 
 @NgModule({
   declarations: [
@@ -20,12 +18,13 @@ import { ChatComponent } from 'src/app/juegosComp/chat/chat.component';
     PokemonComponent,
     PreguntadosComponent,
     PuntajeComponent,
-    ChatComponent
+    ChatComponent,
   ],
   imports: [
     CommonModule,
     JuegosRoutingModule,
     FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class JuegosModule { 

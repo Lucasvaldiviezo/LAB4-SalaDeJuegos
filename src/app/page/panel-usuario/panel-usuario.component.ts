@@ -16,11 +16,12 @@ export class PanelUsuarioComponent implements OnInit {
   archivoSubido:any;
   fotoActual:any;
   imagen:any;
+  usuarioCargado:boolean=false;
   constructor(public authService:AuthService,public fireStoreService:FirestoreService, public storageService:StorageService) { 
     this.authService.getUserLogged().subscribe(usuario=>{
       this.userLogged = usuario;
     });
-    this.fireStoreService.getCollection('datosUsuarios').subscribe(
+    this.fireStoreService.getCollectionWithId('datosUsuarios',"usuarioId").subscribe(
       resp=>{
         this.listaUsuarios = resp;
         this.llenarDatos();
@@ -38,8 +39,9 @@ export class PanelUsuarioComponent implements OnInit {
       {
         let fecha:Date = new Date(this.listaUsuarios[i].fechaCreacion);
         this.usuarioActual = this.listaUsuarios[i];
-        this.fotoActual = this.listaUsuarios[i].fotoURL;
+        this.fotoActual = this.listaUsuarios[i].urlImagen;
         this.usuarioActual.fechaCreacion = fecha;
+        this.usuarioCargado=true;
         break;
       }
     }
@@ -57,14 +59,21 @@ export class PanelUsuarioComponent implements OnInit {
   }
 
   cambiarFotoPerfil(idImagen:string){
-    this.storageService.subirImagenStorage(idImagen,this.archivoSubido[0],"fotosDePerfil/");
+    let nuevaFoto;
+    this.storageService.subirImagenStorage(idImagen,this.archivoSubido[0],"fotosDePerfil/").then(urlImagen =>{
+      nuevaFoto = urlImagen;
+      if(nuevaFoto != null)
+      {
+        this.fireStoreService.actualizarURL("datosUsuarios",this.usuarioActual.usuarioId,nuevaFoto);
+      }  
+    });
   }
 
   guardarDatos(){
     if(this.fotoActual != this.usuarioActual.fotoURL)
     { 
       console.log("ENTRE");
-      this.cambiarFotoPerfil(this.usuarioActual.username+this.usuarioActual.email);
+      this.cambiarFotoPerfil(this.usuarioActual.username+"+"+this.usuarioActual.email);
     }
   }
 

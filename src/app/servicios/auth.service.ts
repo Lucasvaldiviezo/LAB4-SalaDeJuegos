@@ -30,7 +30,7 @@ export class AuthService {
     }
   }
 
-  async loginWithGoogle(email:string,password:string)
+  /*async loginWithGoogle(email:string,password:string)
   {
     try{
       return await this.afauth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
@@ -39,7 +39,7 @@ export class AuthService {
       console.log("error en login con google", error);
       return null;
     }
-  }
+  }*/
 
   getUserLogged()
   {

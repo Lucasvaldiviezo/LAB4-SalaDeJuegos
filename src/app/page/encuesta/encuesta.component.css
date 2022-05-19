@@ -1,0 +1,104 @@
+body{
+    min-height: 100vh; 
+    overflow: hidden; 
+    background-image: url('src\assets\fondo.jpg');
+    position: relative;
+    
+}
+
+.container{
+    background-color: rgb(96, 52, 107);
+    height:800px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    margin-left:auto;
+    margin-top:1%;
+    border-width: 10px;
+    border-style: outset;
+    border-color: rgb(117, 15, 15);
+}
+
+label{
+    color:rgb(255, 255, 255);
+	font-size:20px;
+    text-align: left;
+}
+
+input[type=text]
+{
+    width: 100%;
+    padding: 6px 10px;
+    margin: 10px 0px;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+input[type=number]
+{
+    width: 100%;
+    padding: 6px 10px;
+    margin: 10px 0px;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+select
+{
+    width: 100%;
+    padding: 6px 10px;
+    margin: 10px 0px;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+textarea{
+    width: 100%;
+    height: 100px;
+    padding: 6px 10px;
+    margin: 10px 0px;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.btnEnviar{
+    width: 150px;
+    height: 50px;
+    padding:10px 10px;
+    background-color: rgb(159, 211, 159);
+    position: relative;
+    left:35%;
+    margin-top:10%;
+    border-width: 4px;
+    border-style:inset;
+    border-color: rgb(0, 0, 0);
+}
+
+.radio-label{
+    padding-left: 10px;
+    font-size: medium;
+}
+
+.form-check-label{
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: medium;
+}
+
+.invalid
+{
+    color: red;
+}

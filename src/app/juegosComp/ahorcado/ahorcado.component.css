@@ -56,6 +56,16 @@
     top:23%;
     background-color: rgb(190, 59, 59);
     border-radius: 10%;
+    right:5%;
+}
+
+.botonVolverAMenu{
+    position: relative;
+    padding: 10px 10px 10px;
+    top:23%;
+    left:2%;
+    background-color: rgb(42, 136, 143);
+    border-radius: 10%;
 }
 .ahorcado-img-menu{
     position: relative;

@@ -16,12 +16,12 @@
             <label class="textoInfo">Fecha de Nacimiento:</label><br><br>
             <label class="textoInfo">Fecha de Creacion de Cuenta:</label> 
         </div>
-        <div class="datosUsuario">
+        <div class="datosUsuario" *ngIf="usuarioCargado">
             <input type="text" class="infoUsuario" disabled value="{{usuarioActual.username}}"><br><br>
             <input type="text" class="infoUsuario" disabled value="{{usuarioActual.email}}"><br><br>
             <input type="text" class="infoUsuario" disabled value="{{usuarioActual.fechaNacimiento}}"><br><br>
             <input type="text" class="infoUsuario" disabled value="{{usuarioActual.fechaCreacion | date: 'short'}}">
         </div>
-        <button (click)="guardarDatos()">Guardar</button>
+        <button (click)="guardarDatos()" class="botonGuardar">Guardar</button>
     </div> 
 </body>

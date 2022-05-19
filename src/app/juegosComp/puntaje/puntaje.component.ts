@@ -42,6 +42,9 @@ export class PuntajeComponent implements OnInit {
             agregado = 1;
             this.firestoreService.actualizarColeccionCompleta(this.coleccionActual,this.tablaPuntajes);
             break;
+          }else if(this.compararPuntaje(this.puntajeRecibido,this.tablaPuntajes[i].puntaje,) == 0)
+          {
+            
           }
         }
         if(this.tablaPuntajes.length < this.topMax && agregado == 0)

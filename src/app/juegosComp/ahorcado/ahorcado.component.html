@@ -24,6 +24,7 @@
             <p class="infoFinal"> PERDISTE! </p>
             <p class="infoFinal"> La palabra era: {{ palabra }} </p><br>
             <button class="botonVolverAJugar" (click)="elegirPalabra()">Volver a Jugar</button>
+            <button class="botonVolverAMenu" (click)="volverAMenu()">Volver al Menu</button>
         </div>
         <div class="letras" *ngIf="!gano && !perdio">  
             <button (click)="comprobar(letra)" *ngFor="let letra of letras" class="botonLetras"> {{letra}} </button> 

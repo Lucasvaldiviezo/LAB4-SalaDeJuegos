@@ -12,6 +12,10 @@ export class FirestoreService {
     return this.firestore.collection(coleccion).valueChanges();
   }
 
+  getCollectionWithId(coleccion:any, nombreIdField:string){
+    return this.firestore.collection(coleccion).valueChanges({ idField: nombreIdField });
+  }
+
   addToChat(chat:any,id:number)
   {
     let idDocument = id.toString();
@@ -26,6 +30,11 @@ export class FirestoreService {
   addUsuario(coleccion:any,usuario:any)
   {
     this.firestore.collection(coleccion).add(usuario);
+  }
+
+  addEncuesta(coleccion:any,encuesta:any)
+  {
+    this.firestore.collection(coleccion).add(encuesta);
   }
 
   actualizarColeccionCompleta(coleccion:any,datos:any)

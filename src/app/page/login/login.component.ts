@@ -16,10 +16,11 @@ export class LoginComponent implements OnInit {
   mostrarImagen:boolean = false;
   imagenDefault:string = "https://ibb.co/w4nr9Vw";
   public formRegistro: FormGroup;
+  
   constructor(public ruteo:Router,public authService: AuthService, private fb: FormBuilder, public fireStore:FirestoreService,public storageService:StorageService) {
       this.formRegistro = this.fb.group({
         'username': ['', [Validators.required, this.spacesValidator]],
-        'password': ['', Validators.required],
+        'password': ['', [Validators.required]],
         'email': ['', [Validators.required, Validators.email]],
         'fechaNacimiento': ['', [Validators.required]],
       });
@@ -55,32 +56,6 @@ export class LoginComponent implements OnInit {
           console.log("error al logearse",error);
           this.showError = true;
       });
-  }
-  
-  ingresarConGoogle(){
-    const{email,password}=this.usuario;
-    this.authService.loginWithGoogle(email,password)
-    .then(res =>
-    {
-      console.log("se ingreso con google!: ",res);
-      console.log("se registro!: ",res);
-      let usuarioTemp = {
-        username: res?.user?.displayName,
-        email: res?.user?.email,
-        userId: res?.user?.uid,
-        fechaCreacion: res?.user?.metadata.creationTime,
-        fechaNacimiento: "",
-        fotoURL: res?.user?.photoURL,
-        };
-      this.fireStore.addUsuario("datosUsuarios",usuarioTemp);
-      this.ruteo.navigateByUrl('home');
-      this.ruteo.navigateByUrl('home');
-    })
-    .catch((error:any) =>
-    {
-        console.log("error al logearse con google",error);
-        this.showError = true;
-    });
   }
 
   registrarse()

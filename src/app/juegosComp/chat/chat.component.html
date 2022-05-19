@@ -1,4 +1,10 @@
 <body>
+    <div class="profilePopUp" *ngIf="profileIsVisible">
+        <br>
+        <p>{{usuarioPopUp.username}}</p>
+        <p>{{usuarioPopUp.email}}</p>
+        <img class="imagenPerfilPopUp" src="{{usuarioPopUp.urlImagen}}">
+    </div>
     <div *ngIf="!userLogged">
         <p class="mensajitoDeslogeado">DEBE ESTAR LOGEADO PARA VER EL CHAT</p>
     </div>
@@ -12,8 +18,8 @@
         </div>
         <div id="contenedorDeMensajes" class="card-body">
             <div>
-                <p *ngFor="let mensaje of mensajes"  class="msj p-2" [ngClass]="(userLogged.uid==mensaje.emisor)?'enviado' : 'recibido'">
-                    <span class="usuarioMensaje">{{mensaje.usuario}}:</span><br>
+                <p *ngFor="let mensaje of mensajes"  class="msj p-2" [ngClass]="(usuarioActual.userId==mensaje.emisor)?'enviado' : 'recibido'">
+                    <span (mouseover)="mostrarPerfil(mensaje)" (mouseleave)="esconderPefil(mensaje)" class="usuarioMensaje">{{mensaje.usuario}}:</span><br>
                     <span>{{mensaje.texto}}</span><br>
                     <span class="horaMensaje">{{mensaje.hora | date:'shortTime'}}</span>
                 </p>

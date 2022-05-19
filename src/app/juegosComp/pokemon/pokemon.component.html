@@ -18,6 +18,7 @@
                 <p class="infoFinal"> PERDISTE! </p>
                 <p class="infoFinal"> El pokemon era: {{pokemon.name | uppercase}}</p><br>
                 <button class="botonVolverAJugar" (click)="comenzar()">Volver a Jugar</button>
+                <button class="botonVolverAMenu" (click)="volverAMenu()">Volver al Menu</button>
             </div>
             <div *ngIf="adivino" class="jugando">
                 <p class="infoAdivino"> CORRECTO! </p>

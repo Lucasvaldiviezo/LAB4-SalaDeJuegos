@@ -9,7 +9,7 @@ import { AuthService } from '../../servicios/auth.service';
 })
 export class NavmenuComponent implements OnInit {
   isUserLogged = this.authService.getUserLogged();
-  userLogged:any
+  userLogged:any = "";
   usuarioActual:any
   listaUsuarios:any;
   isLogged:boolean = true;
@@ -27,6 +27,7 @@ export class NavmenuComponent implements OnInit {
       resp=>{
         this.listaUsuarios = resp;
         this.llenarDatos();
+        
     });
   }
   ngOnInit(): void {
@@ -34,16 +35,19 @@ export class NavmenuComponent implements OnInit {
 
   llenarDatos()
   {
-    for(let i=0;i < this.listaUsuarios.length;i++)
+    if(this.userLogged != null)
     {
-      if(this.userLogged.email == this.listaUsuarios[i].email)
+      for(let i=0;i < this.listaUsuarios.length;i++)
       {
-        let fecha:Date = new Date(this.listaUsuarios[i].fechaCreacion);
-        this.usuarioActual = this.listaUsuarios[i];
-        this.usuarioActual.fechaCreacion = fecha;
-        break;
+        if(this.userLogged.email == this.listaUsuarios[i].email)
+        {
+          let fecha:Date = new Date(this.listaUsuarios[i].fechaCreacion);
+          this.usuarioActual = this.listaUsuarios[i];
+          this.usuarioActual.fechaCreacion = fecha;
+          break;
+        }
       }
-    }
+    } 
   }
 
   logout()

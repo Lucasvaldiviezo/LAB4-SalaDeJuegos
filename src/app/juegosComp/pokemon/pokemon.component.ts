@@ -65,6 +65,16 @@ export class PokemonComponent implements OnInit {
     }
   }
 
+  volverAMenu()
+  {
+    this.pokemonResp="";
+    this.menu = true;
+    this.perdio = false;
+    this.mostrar = false;
+    this.puntos = 0;
+    this.enviarTablaPuntajes(this.puntos);
+  }
+
   getRandomInt(min:number, max:number) : number{
     min = Math.ceil(min);
     max = Math.floor(max);

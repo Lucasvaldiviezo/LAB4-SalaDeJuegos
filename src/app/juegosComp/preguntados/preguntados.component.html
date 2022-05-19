@@ -21,6 +21,7 @@
                 <p class="infoFinal"> PERDISTE! </p>
                 <p class="infoFinal"> El pais era: {{paisCorrecto.name.common}}</p><br>
                 <button class="botonVolverAJugar" (click)="comenzar()">Volver a Jugar</button>
+                <button class="botonVolverAMenu" (click)="volverAMenu()">Volver al Menu</button>
             </div>
             <div *ngIf="adivino" class="respuestasContenedor">
                 <p class="infoAdivino"> CORRECTO! </p>
