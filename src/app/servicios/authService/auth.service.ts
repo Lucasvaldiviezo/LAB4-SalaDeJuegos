@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import firebase from 'firebase/compat/app';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   isUserLogged:boolean = false;
-  constructor(public afauth: AngularFireAuth ) { }
+  constructor(public afauth: AngularFireAuth,public ruteo:Router ) { }
 
   async register(email:string,password:string)
   {
@@ -49,6 +49,7 @@ export class AuthService {
 
   logout()
   {
+    this.ruteo.navigateByUrl('home');
     this.isUserLogged = false;
     this.afauth.signOut();
   }

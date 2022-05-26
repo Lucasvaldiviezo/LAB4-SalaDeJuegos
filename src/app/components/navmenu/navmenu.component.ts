@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FirestoreService } from 'src/app/servicios/firestore.service';
-import { AuthService } from '../../servicios/auth.service';
+import { AuthService } from 'src/app/servicios/authService/auth.service'; 
+import { FirestoreService } from 'src/app/servicios/firestoreService/firestore.service';
 
 @Component({
   selector: 'app-navmenu',

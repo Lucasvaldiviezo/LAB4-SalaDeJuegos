@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AuthService } from 'src/app/servicios/auth.service';
-import { FirestoreService } from 'src/app/servicios/firestore.service';
+import { AuthService } from 'src/app/servicios/authService/auth.service'; 
+import { FirestoreService } from 'src/app/servicios/firestoreService/firestore.service';
 import { StorageService } from 'src/app/servicios/storageService/storage.service';
 
 @Component({

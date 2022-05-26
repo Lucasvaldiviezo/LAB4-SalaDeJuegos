@@ -66,26 +66,16 @@
 						</div>
 						<div class="group">
 							<label for="fechaNacimiento" class="label">Fecha de Nacimiento:</label>
-							<input type="date" id="fechaNacimiento" formControlName="fechaNacimiento">
+							<input type="date" class="input" id="fechaNacimiento" formControlName="fechaNacimiento">
 							<small class="invalid" 
 							*ngIf="formRegistro.controls['fechaNacimiento'].errors?.['required'] && formRegistro.controls['fechaNacimiento'].touched">
 							La fecha es requerida
 							</small>
 						 </div>
 						<div class="group">
-							<input type="file" id="inputFile" accept=".png, .jpg, .jpeg" multiple (change)="obtenerImagen($event)">
-							<label class="label">Subir Imagen:</label>
-							<label for="inputFile" class="labelInputFile">
-								<img src="https://icons-for-free.com/download-icon-cloud+upload+file+storage+upload+icon-1320190558968694328_512.png" alt="upload file">
-							</label>
-						</div>
-						<div class="group">
 							<input type="submit" class="button" value="Registrarse" [disabled]="formRegistro.invalid">
 						</div>
 					</form>
-					<div class="mostradorDeImagen">
-						<img *ngIf="mostrarImagen" src="{{imagen}}" alt="imagenSubida" class="muestraImagen" >
-					</div>
 				</div>
 			</div>
 		</div>

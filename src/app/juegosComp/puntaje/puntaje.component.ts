@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit, Input ,Output,EventEmitter, SimpleChange } from '@angular/core';
-import { AuthService } from 'src/app/servicios/auth.service'; 
-import { FirestoreService } from 'src/app/servicios/firestore.service';
+import { AuthService } from 'src/app/servicios/authService/auth.service'; 
+import { FirestoreService } from 'src/app/servicios/firestoreService/firestore.service';
 @Component({
   selector: 'app-puntaje',
   templateUrl: './puntaje.component.html',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../servicios/auth.service';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { FirestoreService } from 'src/app/servicios/firestore.service';
+import { AuthService } from 'src/app/servicios/authService/auth.service'; 
+import { FirestoreService } from 'src/app/servicios/firestoreService/firestore.service';
 import { StorageService } from 'src/app/servicios/storageService/storage.service';
 
 @Component({

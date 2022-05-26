@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FirestoreService } from '../firestore.service';
+import { FirestoreService } from 'src/app/servicios/firestoreService/firestore.service';
 import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage';
 
 @Injectable({

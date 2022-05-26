@@ -43,7 +43,6 @@ export class FirestoreService {
     for(let i = 0; i < datos.length; i++)
     {
       let idDocument:string =datos[i].posicion.toString();
-      console.log(idDocument);
       this.firestore.collection(coleccion).doc(idDocument).set({
         posicion: datos[i].posicion,
         puntaje: datos[i].puntaje,
