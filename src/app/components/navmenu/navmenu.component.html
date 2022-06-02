@@ -9,6 +9,7 @@
         <li><a routerLink="home" class="nav-link px-2 text-white">Home</a></li>
         <li><a routerLink="juegos" class="nav-link px-2 text-white">Juegos</a></li>
         <li><a routerLink="sobreMi" class="nav-link px-2 text-white">Sobre Mi</a></li>
+
       </ul>
       <a *ngIf="isUserLogged|async as user;else login_buttons">
         {{usuarioActual.username}}
